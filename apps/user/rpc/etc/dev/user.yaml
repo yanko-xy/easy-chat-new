@@ -4,3 +4,15 @@ Etcd:
   Hosts:
     - 120.26.209.19:3379
   Key: user.rpc
+
+Mysql:
+  DataSource: root:easy-chat@tcp(120.26.209.19:13306)/easy-chat?charset=utf8mb4&parseTime=true&loc=Local
+
+Cache:
+  - Host: 120.26.209.19:16379
+    Type: node
+    Pass: easy-chat
+
+Jwt:
+  AccessSecret: github.com
+  AccessExpire: 8640000
