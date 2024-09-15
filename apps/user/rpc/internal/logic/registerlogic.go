@@ -3,21 +3,22 @@ package logic
 import (
 	"context"
 	"database/sql"
-	"errors"
 	"time"
 
 	"rpc/internal/svc"
 	"rpc/user"
 
+	"github.com/pkg/errors"
 	"github.com/yanko-xy/easy-chat/apps/user/models"
 	"github.com/yanko-xy/easy-chat/pkg/ctxdata"
 	"github.com/yanko-xy/easy-chat/pkg/encrypt"
 	"github.com/yanko-xy/easy-chat/pkg/wuid"
+	"github.com/yanko-xy/easy-chat/pkg/xerr"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
 var (
-	ErrPhoneIsRegister = errors.New("手机号已注册")
+	ErrPhoneIsRegister = xerr.New(xerr.SERVER_COMMON_ERROR, "手机号已注册")
 )
 
 type RegisterLogic struct {
@@ -39,12 +40,12 @@ func (l *RegisterLogic) Register(in *user.RegisterReq) (*user.RegisterResp, erro
 
 	// 验证用户是否注册
 	userEntity, err := l.svcCtx.UserModels.FindByPhone(l.ctx, in.Phone)
-	if err != nil && !errors.Is(err, models.ErrNotFound) {
-		return nil, err
+	if err != nil && err != models.ErrNotFound {
+		return nil, errors.Wrapf(xerr.NewDBErr(), "find user by phone err %v, req %v", err, in.Phone)
 	}
 
 	if userEntity != nil {
-		return nil, ErrPhoneIsRegister
+		return nil, errors.WithStack(ErrPhoneIsRegister)
 	}
 
 	// 定义用户数据变量
@@ -62,7 +63,7 @@ func (l *RegisterLogic) Register(in *user.RegisterReq) (*user.RegisterResp, erro
 	if len(in.Password) > 0 {
 		genPassword, err := encrypt.GenPasswordHash([]byte(in.Password))
 		if err != nil {
-			return nil, err
+			return nil, errors.Wrapf(xerr.NewInternalErr(), "gen password hash err %v, req %v", err, in.Password)
 		}
 		userEntity.Password = sql.NullString{
 			String: string(genPassword),
@@ -72,14 +73,14 @@ func (l *RegisterLogic) Register(in *user.RegisterReq) (*user.RegisterResp, erro
 
 	_, err = l.svcCtx.UserModels.Insert(l.ctx, userEntity)
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(xerr.NewDBErr(), "insert user err %v, req %v", err, userEntity)
 	}
 
 	// 生成token
 	now := time.Now().Unix()
 	token, err := ctxdata.GetJwtToken(l.svcCtx.Config.Jwt.AccessSecret, now, l.svcCtx.Config.Jwt.AccessExpire, userEntity.Id)
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(xerr.NewInternalErr(), "gen token err %v, req %v", err, userEntity)
 	}
 
 	return &user.RegisterResp{
