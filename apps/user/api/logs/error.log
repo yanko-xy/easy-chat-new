@@ -1,0 +1,11 @@
+2024-09-15T23:26:31.315+08:00	[31;1m error [0;22m	authorize failed: no token present in request
+=> GET /v1/user/user HTTP/1.1
+Host: 127.0.0.1:8888
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Postman-Token: ece146e2-8438-493d-b63c-49598438d898
+User-Agent: PostmanRuntime/7.42.0
+
+	caller=handler/authhandler.go:103

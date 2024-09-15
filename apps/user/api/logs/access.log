@@ -1,0 +1,4 @@
+2024-09-15T23:26:31.315+08:00	[34;1m info [0;22m	[HTTP] [45;97;1m 401 [0;0;22m - [44;97;1m GET [0;0;22m /v1/user/user - 127.0.0.1:54734 - PostmanRuntime/7.42.0	duration=0.2ms	caller=handler/loghandler.go:147	trace=c31b142453186f977ddf761e741b2b1c	span=7841edc3e80f38c2
+2024-09-15T23:31:04.000+08:00	[34;1m info [0;22m	[HTTP] [42;97;1m 200 [0;0;22m - [46;97;1m POST [0;0;22m /v1/user/login - 127.0.0.1:54911 - PostmanRuntime/7.42.0	trace=f8c9fb5ac0cbec146e8aae850e100165	span=50b2083e217e1a7f	duration=147.9ms	caller=handler/loghandler.go:147
+2024-09-15T23:31:33.802+08:00	[34;1m info [0;22m	[HTTP] [42;97;1m 200 [0;0;22m - [44;97;1m GET [0;0;22m /v1/user/user - 127.0.0.1:54964 - PostmanRuntime/7.42.0	span=f8851ea1bd2c6482	duration=101.3ms	caller=handler/loghandler.go:147	trace=47c3ccc859537f62d2678f72d7c7b824
+2024-09-15T23:31:45.281+08:00	[34;1m info [0;22m	Got signal 2, shutting down...	caller=proc/shutdown.go:58

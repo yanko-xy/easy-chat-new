@@ -1,0 +1,16 @@
+2024-09-15T23:27:15.460+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=5.2Mi, Sys=14.1Mi, NumGC=2	caller=stat/usage.go:61
+2024-09-15T23:27:15.779+08:00	[32;1m stat [0;22m	(api) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-15T23:27:31.316+08:00	[32;1m stat [0;22m	(user) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.2ms, 90th: 0.2ms, 99th: 0.2ms, 99.9th: 0.2ms	caller=stat/metrics.go:210
+2024-09-15T23:28:15.460+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=5.3Mi, Sys=14.1Mi, NumGC=2	caller=stat/usage.go:61
+2024-09-15T23:28:15.779+08:00	[32;1m stat [0;22m	(api) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-15T23:28:31.316+08:00	[32;1m stat [0;22m	(user) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-15T23:29:15.461+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.1Mi, TotalAlloc=5.3Mi, Sys=14.1Mi, NumGC=3	caller=stat/usage.go:61
+2024-09-15T23:29:15.780+08:00	[32;1m stat [0;22m	(api) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-15T23:29:31.317+08:00	[32;1m stat [0;22m	(user) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-15T23:30:15.461+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.2Mi, TotalAlloc=5.3Mi, Sys=14.1Mi, NumGC=3	caller=stat/usage.go:61
+2024-09-15T23:30:15.780+08:00	[32;1m stat [0;22m	(api) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-15T23:30:31.317+08:00	[32;1m stat [0;22m	(user) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-15T23:31:04.000+08:00	[32;1m stat [0;22m	p2c - conn: 192.168.3.8:10000, load: 12131, reqs: 1	caller=p2c/p2c.go:195
+2024-09-15T23:31:15.481+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.2Mi, TotalAlloc=5.4Mi, Sys=14.1Mi, NumGC=4	caller=stat/usage.go:61
+2024-09-15T23:31:15.801+08:00	[32;1m stat [0;22m	(api) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-15T23:31:31.345+08:00	[32;1m stat [0;22m	(user) - qps: 0.0/s, drops: 0, avg time: 147.0ms, med: 147.8ms, 90th: 147.8ms, 99th: 147.8ms, 99.9th: 147.8ms	caller=stat/metrics.go:210
