@@ -1,0 +1,9 @@
+2024-09-15T13:18:18.197+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.3Mi, TotalAlloc=5.5Mi, Sys=14.1Mi, NumGC=3	caller=stat/usage.go:61
+2024-09-15T13:18:18.203+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 0.0%, hit: 0, miss: 1, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-15T13:18:18.204+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-15T13:18:57.215+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 312.0ms, med: 575.9ms, 90th: 575.9ms, 99th: 575.9ms, 99.9th: 575.9ms	caller=stat/metrics.go:210
+2024-09-15T13:19:18.197+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=5.6Mi, Sys=14.1Mi, NumGC=3	caller=stat/usage.go:61
+2024-09-15T13:19:18.203+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 0.0%, hit: 0, miss: 1, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-15T13:19:18.203+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-15T16:47:36.002+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=5.3Mi, Sys=13.9Mi, NumGC=2	caller=stat/usage.go:61
+2024-09-15T16:47:36.009+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 2, pass: 2, drop: 0	caller=load/sheddingstat.go:61

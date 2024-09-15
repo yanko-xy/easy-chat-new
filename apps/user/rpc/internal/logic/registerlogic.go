@@ -39,7 +39,7 @@ func (l *RegisterLogic) Register(in *user.RegisterReq) (*user.RegisterResp, erro
 	// 注册
 
 	// 验证用户是否注册
-	userEntity, err := l.svcCtx.UserModels.FindByPhone(l.ctx, in.Phone)
+	userEntity, err := l.svcCtx.UserModels.FindByPhoneNoCache(l.ctx, in.Phone)
 	if err != nil && err != models.ErrNotFound {
 		return nil, errors.Wrapf(xerr.NewDBErr(), "find user by phone err %v, req %v", err, in.Phone)
 	}
