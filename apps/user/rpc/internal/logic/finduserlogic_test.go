@@ -2,8 +2,8 @@ package logic
 
 import (
 	"context"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/user"
 	"reflect"
-	"rpc/user"
 	"testing"
 )
 

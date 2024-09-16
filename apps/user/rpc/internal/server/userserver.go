@@ -6,9 +6,9 @@ package server
 import (
 	"context"
 
-	"rpc/internal/logic"
-	"rpc/internal/svc"
-	"rpc/user"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/logic"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/svc"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/user"
 )
 
 type UserServer struct {

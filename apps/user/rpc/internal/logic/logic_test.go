@@ -1,9 +1,9 @@
 package logic
 
 import (
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/config"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/svc"
 	"path/filepath"
-	"rpc/internal/config"
-	"rpc/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 )

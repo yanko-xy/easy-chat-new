@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"rpc/internal/config"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/config"
 
 	"github.com/yanko-xy/easy-chat/apps/user/models"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"

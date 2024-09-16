@@ -3,10 +3,11 @@ package logic
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"time"
 
-	"rpc/internal/svc"
-	"rpc/user"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/svc"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/user"
 
 	"github.com/pkg/errors"
 	"github.com/yanko-xy/easy-chat/apps/user/models"
@@ -40,7 +41,7 @@ func (l *RegisterLogic) Register(in *user.RegisterReq) (*user.RegisterResp, erro
 
 	// 验证用户是否注册
 	userEntity, err := l.svcCtx.UserModels.FindByPhoneNoCache(l.ctx, in.Phone)
-	if err != nil && err != models.ErrNotFound {
+	if err != nil && !errors.Is(err, models.ErrNotFound) {
 		return nil, errors.Wrapf(xerr.NewDBErr(), "find user by phone err %v, req %v", err, in.Phone)
 	}
 

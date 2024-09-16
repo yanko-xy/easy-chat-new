@@ -2,10 +2,11 @@ package logic
 
 import (
 	"context"
+	"errors"
 	"time"
 
-	"rpc/internal/svc"
-	"rpc/user"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/svc"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/user"
 
 	"github.com/pkg/errors"
 	"github.com/yanko-xy/easy-chat/apps/user/models"
@@ -40,7 +41,7 @@ func (l *LoginLogic) Login(in *user.LoginReq) (*user.LoginResp, error) {
 	// 验证用户是否注册，根据手机号验证
 	userEntity, err := l.svcCtx.UserModels.FindByPhone(l.ctx, in.Phone)
 	if err != nil {
-		if err == models.ErrNotFound {
+		if errors.Is(err, models.ErrNotFound) {
 			return nil, errors.WithStack(ErrPhoneNotRegister)
 		}
 		return nil, errors.Wrapf(xerr.NewDBErr(), "find user by phone err %v, req %v", err, in.Phone)

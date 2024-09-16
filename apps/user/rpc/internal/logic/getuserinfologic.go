@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"rpc/internal/svc"
-	"rpc/user"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/svc"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/user"
 
 	"github.com/jinzhu/copier"
 	"github.com/pkg/errors"

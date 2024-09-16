@@ -1,10 +1,11 @@
 package xerr
 
 var CodeTest = map[int]string{
-	SERVER_COMMON_ERROR: "服务异常，请稍后再试",
-	REQUEST_PARAM_ERROR: "参数不正确",
-	TOKEN_EXPIRE_ERROR:  "token已过期，请重新登录",
-	DB_ERROR:            "数据库繁忙，请稍后再试",
+	SERVER_COMMON_ERROR:     "服务异常，请稍后再试",
+	REQUEST_PARAM_ERROR:     "参数不正确",
+	TOKEN_EXPIRE_ERROR:      "token已过期，请重新登录",
+	DB_ERROR:                "数据库繁忙，请稍后再试",
+	ILLEGAL_OPERATION_ERROR: "非法操作",
 }
 
 func ErrMsg(errcode int) string {

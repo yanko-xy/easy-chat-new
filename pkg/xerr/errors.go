@@ -18,6 +18,9 @@ func NewInternalErr() error {
 	return errors.New(SERVER_COMMON_ERROR, ErrMsg(SERVER_COMMON_ERROR))
 }
 
+func NewIllegalOperationErr() error {
+	return errors.New(ILLEGAL_OPERATION_ERROR, ErrMsg(ILLEGAL_OPERATION_ERROR))
+}
 func NewDBErr() error {
 	return errors.New(DB_ERROR, ErrMsg(DB_ERROR))
 }

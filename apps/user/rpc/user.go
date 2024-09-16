@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"rpc/internal/config"
-	"rpc/internal/server"
-	"rpc/internal/svc"
-	"rpc/user"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/config"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/server"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/svc"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/user"
 
 	"github.com/yanko-xy/easy-chat/pkg/interceptor/rpcserver"
 	"github.com/zeromicro/go-zero/core/conf"

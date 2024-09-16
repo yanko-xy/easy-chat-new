@@ -3,3 +3,7 @@
 2024-09-15T13:23:29.211+08:00	[31;1m error [0;22m	【RPC SRV ERR】 code: 100001, msg: 手机号已注册	caller=rpcserver/logInterceptor.go:21	trace=9078790a2c5119227d44f079e4123cdc	span=507b5560bf358ab6
 2024-09-15T22:58:05.135+08:00	[31;1m error [0;22m	【RPC SRV ERR】 code: 100001, msg: 手机号已注册	trace=0c20b65298d27c6fe05353fe914148e0	span=369e4395b505e469	caller=rpcserver/logInterceptor.go:21
 2024-09-15T23:00:05.806+08:00	[31;1m error [0;22m	【RPC SRV ERR】 code: 100001, msg: 该用户不存在	caller=rpcserver/logInterceptor.go:21	trace=07bf0fe07525f22feab3610babfff416	span=b37bf8f60117e160
+2024-09-16T00:33:06.275+08:00	[31;1m error [0;22m	【RPC SRV ERR】 code: 100001, msg: 手机号已注册	caller=rpcserver/logInterceptor.go:21	trace=71ac1b69ec5f63c20fc2bfaf50e1c82a	span=884bad97a1dc51c8
+2024-09-16T00:33:12.628+08:00	[31;1m error [0;22m	【RPC SRV ERR】 code: 100001, msg: 手机号已注册	caller=rpcserver/logInterceptor.go:21	trace=f44c4ff6c802cdd460ac9f23c2a70b5b	span=162b8f01e05c816f
+2024-09-16T00:33:18.468+08:00	[31;1m error [0;22m	【RPC SRV ERR】 code: 100001, msg: 手机号已注册	caller=rpcserver/logInterceptor.go:21	trace=bc87eb00fa85306b6a8088f7c76fd80f	span=bc08181e13d561ba
+2024-09-16T00:33:25.162+08:00	[31;1m error [0;22m	【RPC SRV ERR】 code: 100001, msg: 手机号已注册	trace=019b31f6b9bc5b146005fe8a4a83bb21	span=3a46d6bb120ef1ca	caller=rpcserver/logInterceptor.go:21
