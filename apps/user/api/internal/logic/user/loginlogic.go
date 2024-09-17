@@ -2,7 +2,7 @@ package user
 
 import (
 	"context"
-	"rpc/user"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/user"
 
 	"github.com/jinzhu/copier"
 	"github.com/yanko-xy/easy-chat/apps/user/api/internal/svc"

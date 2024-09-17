@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/yanko-xy/easy-chat/pkg/interceptor/rpcserver"
 	"github.com/zeromicro/go-zero/core/logx"
 	"os"
 
@@ -41,6 +42,7 @@ func main() {
 			reflection.Register(grpcServer)
 		}
 	})
+	s.AddUnaryInterceptors(rpcserver.LogInterceptor)
 	defer s.Stop()
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)

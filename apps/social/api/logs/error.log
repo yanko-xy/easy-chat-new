@@ -1,0 +1,65 @@
+2024-09-17T12:50:08.235+08:00	[31;1m error [0;22m	fail - etcd:/120.26.209.19:3379/social.rpc/social.social/FriendPutIn - userId:"0x0000004000000001" reqUid:"0x0000002000000001" reqMsg:"你好呀" - rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	span=7e9ecefd69ef55d8	duration=246.9ms	caller=clientinterceptors/durationinterceptor.go:35	trace=39928aded27f65a5cfb1500d9bdcc783
+2024-09-17T12:50:08.236+08:00	[31;1m error [0;22m	[HTTP] [103;90;1m 500 [0;0;22m - [46;97;1m POST [0;0;22m /v1/social/friend/putIn - 127.0.0.1:55578 - PostmanRuntime/7.42.0
+POST /v1/social/friend/putIn HTTP/1.1
+Host: 127.0.0.1:8889
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUxODg1MjksImdpdGh1Yi5jb20iOiIweDAwMDAwMDIwMDAwMDAwMDEiLCJpYXQiOjE3MjY1NDg1Mjl9.sDA35qjHlzhUNXCrD4pwhGZHZUlSCCc0Gz3U0cOPLQw
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 67
+Content-Type: application/json
+Postman-Token: a1d86787-834c-45c1-9aff-74f6d6e47828
+User-Agent: PostmanRuntime/7.42.0
+
+{
+    "user_id": "0x0000004000000001",
+    "req_msg": "你好呀"
+}	duration=247.9ms	caller=handler/loghandler.go:149	trace=39928aded27f65a5cfb1500d9bdcc783	span=02523ceee251ccf2
+2024-09-17T12:51:15.616+08:00	[31;1m error [0;22m	fail - etcd:/120.26.209.19:3379/social.rpc/social.social/FriendPutIn - userId:"0x0000004000000001"  reqUid:"0x0000002000000001"  reqMsg:"你好呀" - rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	duration=248.2ms	caller=clientinterceptors/durationinterceptor.go:35	trace=e9fbf45579baf73576d633de3e967542	span=605ad2b634a0231c
+2024-09-17T12:51:15.616+08:00	[31;1m error [0;22m	【social】err rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	caller=resultx/httpResponse.go:57	trace=e9fbf45579baf73576d633de3e967542	span=aaec4e4afff41149
+2024-09-17T12:54:09.814+08:00	[31;1m error [0;22m	fail - etcd:/120.26.209.19:3379/social.rpc/social.social/FriendPutIn - userId:"0x0000004000000001" reqUid:"0x0000002000000001" reqMsg:"你好呀" - rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	caller=clientinterceptors/durationinterceptor.go:35	trace=199c6e0836d5be538dada95b2a5ea1bb	span=fb90db02a65214ba	duration=213.2ms
+2024-09-17T12:54:46.652+08:00	[31;1m error [0;22m	【social】err context deadline exceeded	trace=199c6e0836d5be538dada95b2a5ea1bb	span=6800b2c94c841f85	caller=resultx/httpResponse.go:57
+2024-09-17T12:54:46.652+08:00	[31;1m error [0;22m	【social】err rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	caller=resultx/httpResponse.go:57	trace=199c6e0836d5be538dada95b2a5ea1bb	span=6800b2c94c841f85
+2024-09-17T12:54:52.052+08:00	[31;1m error [0;22m	fail - etcd:/120.26.209.19:3379/social.rpc/social.social/FriendPutIn - userId:"0x0000004000000001" reqUid:"0x0000002000000001" reqMsg:"你好呀" - rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	span=4e5fb5dffedcc4aa	duration=131.0ms	caller=clientinterceptors/durationinterceptor.go:35	trace=b04fab27cd3be06ab7991bc9d12aa48f
+2024-09-17T12:55:09.063+08:00	[31;1m error [0;22m	【social】err rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	caller=resultx/httpResponse.go:57	trace=b04fab27cd3be06ab7991bc9d12aa48f	span=264b5055ade38f81
+2024-09-17T12:55:11.526+08:00	[31;1m error [0;22m	fail - etcd:/120.26.209.19:3379/social.rpc/social.social/FriendPutIn - userId:"0x0000004000000001" reqUid:"0x0000002000000001" reqMsg:"你好呀" - rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	duration=222.9ms	caller=clientinterceptors/durationinterceptor.go:35	trace=2f3bc4138dd7b3139adf038ad5e5c04f	span=190454b59ff429aa
+2024-09-17T12:57:51.039+08:00	[31;1m error [0;22m	【social】err rpc error: code = Unknown desc = code: 100001, msg: 该好友申请已存在	caller=resultx/httpResponse.go:57	trace=2f3bc4138dd7b3139adf038ad5e5c04f	span=428151debef0237e
+2024-09-17T12:57:51.040+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35
+2024-09-17T12:58:05.266+08:00	[31;1m error [0;22m	fail - etcd:/120.26.209.19:3379/social.rpc/social.social/FriendPutIn - userId:"0x0000004000000001" reqUid:"0x0000002000000001" reqMsg:"你好呀" - rpc error: code = Code(100001) desc = 该好友申请已存在	duration=256.4ms	caller=clientinterceptors/durationinterceptor.go:35	trace=d1572018c3374c9837e6597b7319e58d	span=c629dcb349098d39
+2024-09-17T12:58:05.266+08:00	[31;1m error [0;22m	【social】err rpc error: code = Code(100001) desc = 该好友申请已存在	caller=resultx/httpResponse.go:57	trace=d1572018c3374c9837e6597b7319e58d	span=067ef0181ab228bb
+2024-09-17T13:09:31.809+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35
+2024-09-17T13:11:15.521+08:00	[31;1m error [0;22m	fail - etcd:/120.26.209.19:3379/social.rpc/social.social/FriendPutInHandle - friendReqId:4  userId:"0x0000006000000004"  handleResult:2  handleMsg:"你也好" - rpc error: code = Code(100001) desc = 好友申请已经通过	caller=clientinterceptors/durationinterceptor.go:35	trace=0f6b608b34be8ebcaffbc8a20b49a0d0	span=80316474de188221	duration=137.0ms
+2024-09-17T13:11:15.521+08:00	[31;1m error [0;22m	【social】err rpc error: code = Code(100001) desc = 好友申请已经通过	span=30c34e1eb80bcc73	caller=resultx/httpResponse.go:57	trace=0f6b608b34be8ebcaffbc8a20b49a0d0
+2024-09-17T13:12:45.372+08:00	[31;1m error [0;22m	authorize failed: no token present in request
+=> GET /v1/social/friends HTTP/1.1
+Host: 127.0.0.1:8889
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Postman-Token: eaee0cce-5afb-4108-b604-5b0c54f4fc6e
+User-Agent: PostmanRuntime/7.42.0
+
+	caller=handler/authhandler.go:103
+2024-09-17T13:14:31.384+08:00	[31;1m error [0;22m	authorize failed: no token present in request
+=> GET /v1/social/friends HTTP/1.1
+Host: 127.0.0.1:8889
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Postman-Token: 048bf289-5abd-4412-988b-6be542b4832c
+User-Agent: PostmanRuntime/7.42.0
+
+	caller=handler/authhandler.go:103
+2024-09-17T13:14:43.338+08:00	[31;1m error [0;22m	【social】err context deadline exceeded	caller=resultx/httpResponse.go:57	trace=65985cbbb37ba6e27751382d5896a599	span=dbf1dc330f59cc64
+2024-09-17T13:15:33.295+08:00	[31;1m error [0;22m	【social】err context deadline exceeded	caller=resultx/httpResponse.go:57	trace=b7ab3f9cb3a02b7c9958434982f5c640	span=65947cb0ed8f8d56
+2024-09-17T13:25:48.088+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35
+2024-09-17T13:32:28.658+08:00	[31;1m error [0;22m	【social】err context deadline exceeded	span=164fdfb39e936de1	caller=resultx/httpResponse.go:57	trace=8058cc05a3d4257a6afe5b0389445c26
+2024-09-17T13:32:28.659+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35
+2024-09-17T13:32:35.430+08:00	[31;1m error [0;22m	fail - etcd:/120.26.209.19:3379/social.rpc/social.social/FriendPutInList - userId:"0x0000002000000001" - rpc error: code = DeadlineExceeded desc = context deadline exceeded	duration=2001.3ms	caller=clientinterceptors/durationinterceptor.go:35	trace=4ae16d57cd22f6e244368354d153b9f3	span=c3971cdb2fc6fef0
+2024-09-17T13:32:35.430+08:00	[31;1m error [0;22m	【social】err rpc error: code = DeadlineExceeded desc = context deadline exceeded	caller=resultx/httpResponse.go:57	trace=4ae16d57cd22f6e244368354d153b9f3	span=ebd4bb1049c3f863
+2024-09-17T13:32:41.433+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35
+2024-09-17T13:38:00.118+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35
+2024-09-17T13:38:00.128+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35

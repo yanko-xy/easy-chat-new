@@ -2,6 +2,9 @@ package logic
 
 import (
 	"context"
+	"github.com/jinzhu/copier"
+	"github.com/pkg/errors"
+	"github.com/yanko-xy/easy-chat/pkg/xerr"
 
 	"github.com/yanko-xy/easy-chat/apps/social/rpc/internal/svc"
 	"github.com/yanko-xy/easy-chat/apps/social/rpc/social"
@@ -24,7 +27,16 @@ func NewFriendPutInListLogic(ctx context.Context, svcCtx *svc.ServiceContext) *F
 }
 
 func (l *FriendPutInListLogic) FriendPutInList(in *social.FriendPutInListReq) (*social.FriendPutInListResp, error) {
-	// todo: add your logic here and delete this line
+	reqList, err := l.svcCtx.FriendRequestModel.ListByUserId(l.ctx, in.UserId)
+	if err != nil {
+		return nil, errors.Wrapf(xerr.NewDBErr(), "list friendputIn by user id err %v, req %v",
+			err, in.UserId)
+	}
 
-	return &social.FriendPutInListResp{}, nil
+	var respList []*social.FriendRequest
+	copier.Copy(&respList, &reqList)
+
+	return &social.FriendPutInListResp{
+		List: respList,
+	}, nil
 }

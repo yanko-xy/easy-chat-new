@@ -59,6 +59,10 @@ func (l *FriendPutInHandleLogic) FriendPutInHandle(in *social.FriendPutInHandleR
 	friendReq.HandledAt = sql.NullTime{
 		Time: time.Now(), Valid: true,
 	}
+	friendReq.HandleMsg = sql.NullString{
+		String: in.HandleMsg,
+		Valid:  true,
+	}
 
 	// 修改申请结果
 	err = l.svcCtx.FriendRequestModel.Trans(l.ctx, func(ctx context.Context,

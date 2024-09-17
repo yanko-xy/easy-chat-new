@@ -147,3 +147,167 @@
 2024-09-16T00:37:06.277+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
 2024-09-16T00:37:15.251+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.3Mi, TotalAlloc=5.9Mi, Sys=14.1Mi, NumGC=5	caller=stat/usage.go:61
 2024-09-16T00:37:15.260+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:45:33.601+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=5.2Mi, Sys=14.4Mi, NumGC=2	caller=stat/usage.go:61
+2024-09-17T12:45:33.611+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:46:31.836+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=5.4Mi, Sys=14.4Mi, NumGC=2	caller=stat/usage.go:61
+2024-09-17T12:46:31.845+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:47:31.835+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.2Mi, TotalAlloc=5.4Mi, Sys=14.4Mi, NumGC=3	caller=stat/usage.go:61
+2024-09-17T12:47:31.845+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:48:31.834+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.3Mi, TotalAlloc=5.6Mi, Sys=14.4Mi, NumGC=3	caller=stat/usage.go:61
+2024-09-17T12:48:31.844+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:49:31.834+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=5.8Mi, Sys=14.4Mi, NumGC=4	caller=stat/usage.go:61
+2024-09-17T12:49:31.842+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 100.0%, hit: 1, miss: 0, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-17T12:49:31.843+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:49:49.803+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 286.0ms, med: 286.0ms, 90th: 286.0ms, 99th: 286.0ms, 99.9th: 286.0ms	caller=stat/metrics.go:210
+2024-09-17T12:50:31.833+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=5.9Mi, Sys=14.4Mi, NumGC=4	caller=stat/usage.go:61
+2024-09-17T12:50:31.842+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:50:49.802+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:51:31.832+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=6.0Mi, Sys=14.4Mi, NumGC=5	caller=stat/usage.go:61
+2024-09-17T12:51:31.842+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:51:49.802+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:52:31.832+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=6.1Mi, Sys=14.4Mi, NumGC=5	caller=stat/usage.go:61
+2024-09-17T12:52:31.841+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:52:49.801+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:53:31.831+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=6.2Mi, Sys=14.4Mi, NumGC=6	caller=stat/usage.go:61
+2024-09-17T12:53:31.840+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:53:49.800+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:54:31.830+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.6Mi, TotalAlloc=6.4Mi, Sys=14.4Mi, NumGC=6	caller=stat/usage.go:61
+2024-09-17T12:54:31.840+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:54:49.800+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:55:31.829+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=6.5Mi, Sys=14.4Mi, NumGC=7	caller=stat/usage.go:61
+2024-09-17T12:55:31.839+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:55:49.799+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:56:31.829+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=6.6Mi, Sys=14.4Mi, NumGC=7	caller=stat/usage.go:61
+2024-09-17T12:56:31.838+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:56:49.798+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:57:31.828+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=6.6Mi, Sys=14.4Mi, NumGC=8	caller=stat/usage.go:61
+2024-09-17T12:57:31.837+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:57:49.797+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:58:31.827+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=6.7Mi, Sys=14.4Mi, NumGC=8	caller=stat/usage.go:61
+2024-09-17T12:58:31.837+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:58:49.797+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T12:59:31.827+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=6.9Mi, Sys=14.4Mi, NumGC=9	caller=stat/usage.go:61
+2024-09-17T12:59:31.836+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T12:59:49.796+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:00:31.826+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.6Mi, TotalAlloc=7.0Mi, Sys=14.4Mi, NumGC=9	caller=stat/usage.go:61
+2024-09-17T13:00:31.835+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:00:49.795+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:01:31.825+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=7.1Mi, Sys=14.4Mi, NumGC=10	caller=stat/usage.go:61
+2024-09-17T13:01:31.834+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 0.0%, hit: 0, miss: 1, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-17T13:01:31.835+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:01:49.890+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 354.0ms, med: 354.1ms, 90th: 354.1ms, 99th: 354.1ms, 99.9th: 354.1ms	caller=stat/metrics.go:210
+2024-09-17T13:02:31.920+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=7.2Mi, Sys=14.4Mi, NumGC=10	caller=stat/usage.go:61
+2024-09-17T13:02:31.930+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:02:49.890+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:03:31.920+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=7.3Mi, Sys=14.4Mi, NumGC=11	caller=stat/usage.go:61
+2024-09-17T13:03:31.929+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:03:49.889+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:04:31.919+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=7.4Mi, Sys=14.4Mi, NumGC=11	caller=stat/usage.go:61
+2024-09-17T13:04:31.929+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:04:49.888+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:05:31.919+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=7.5Mi, Sys=14.4Mi, NumGC=12	caller=stat/usage.go:61
+2024-09-17T13:05:31.928+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:05:49.888+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:06:31.919+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=7.6Mi, Sys=14.4Mi, NumGC=12	caller=stat/usage.go:61
+2024-09-17T13:06:31.928+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:06:49.888+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:07:31.918+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=7.7Mi, Sys=14.4Mi, NumGC=13	caller=stat/usage.go:61
+2024-09-17T13:07:31.928+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:07:49.887+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:08:31.917+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=7.8Mi, Sys=14.4Mi, NumGC=13	caller=stat/usage.go:61
+2024-09-17T13:08:31.927+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:08:49.886+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:09:31.917+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=8.0Mi, Sys=14.4Mi, NumGC=14	caller=stat/usage.go:61
+2024-09-17T13:09:31.927+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:09:49.886+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:10:31.917+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.6Mi, TotalAlloc=8.1Mi, Sys=14.4Mi, NumGC=14	caller=stat/usage.go:61
+2024-09-17T13:10:31.925+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 100.0%, hit: 1, miss: 0, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-17T13:10:31.926+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:10:49.886+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 112.5ms, med: 132.0ms, 90th: 132.0ms, 99th: 132.0ms, 99.9th: 132.0ms	caller=stat/metrics.go:210
+2024-09-17T13:11:31.916+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=8.2Mi, Sys=14.4Mi, NumGC=15	caller=stat/usage.go:61
+2024-09-17T13:11:31.925+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 100.0%, hit: 1, miss: 0, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-17T13:11:31.926+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:11:49.886+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:12:31.916+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=8.3Mi, Sys=14.4Mi, NumGC=15	caller=stat/usage.go:61
+2024-09-17T13:12:31.924+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 100.0%, hit: 1, miss: 0, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-17T13:12:31.925+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:12:49.885+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 115.0ms, med: 115.2ms, 90th: 115.2ms, 99th: 115.2ms, 99.9th: 115.2ms	caller=stat/metrics.go:210
+2024-09-17T13:13:31.915+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=8.5Mi, Sys=14.4Mi, NumGC=16	caller=stat/usage.go:61
+2024-09-17T13:13:31.924+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 100.0%, hit: 1, miss: 0, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-17T13:13:31.925+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 2, pass: 2, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:13:49.885+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 134.5ms, med: 149.3ms, 90th: 149.3ms, 99th: 149.3ms, 99.9th: 149.3ms	caller=stat/metrics.go:210
+2024-09-17T13:14:31.915+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.7Mi, TotalAlloc=8.6Mi, Sys=14.4Mi, NumGC=16	caller=stat/usage.go:61
+2024-09-17T13:14:31.924+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 100.0%, hit: 1, miss: 0, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-17T13:14:31.924+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:14:49.884+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.1/s, drops: 0, avg time: 108.3ms, med: 164.2ms, 90th: 164.2ms, 99th: 164.2ms, 99.9th: 164.2ms	caller=stat/metrics.go:210
+2024-09-17T13:15:31.913+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=8.8Mi, Sys=14.4Mi, NumGC=17	caller=stat/usage.go:61
+2024-09-17T13:15:31.924+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 3, pass: 3, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:15:49.884+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 80.0ms, med: 131.3ms, 90th: 131.3ms, 99th: 131.3ms, 99.9th: 131.3ms	caller=stat/metrics.go:210
+2024-09-17T13:16:31.914+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.7Mi, TotalAlloc=9.0Mi, Sys=14.4Mi, NumGC=17	caller=stat/usage.go:61
+2024-09-17T13:16:31.923+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 2, pass: 2, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:16:49.883+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 46.0ms, med: 46.5ms, 90th: 46.5ms, 99th: 46.5ms, 99.9th: 46.5ms	caller=stat/metrics.go:210
+2024-09-17T13:17:31.913+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=9.1Mi, Sys=14.4Mi, NumGC=18	caller=stat/usage.go:61
+2024-09-17T13:17:31.923+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:17:49.883+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:18:31.913+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.7Mi, TotalAlloc=9.3Mi, Sys=14.4Mi, NumGC=18	caller=stat/usage.go:61
+2024-09-17T13:18:31.923+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 2, pass: 2, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:18:49.883+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 86.0ms, med: 139.9ms, 90th: 139.9ms, 99th: 139.9ms, 99.9th: 139.9ms	caller=stat/metrics.go:210
+2024-09-17T13:19:31.913+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=9.4Mi, Sys=14.4Mi, NumGC=19	caller=stat/usage.go:61
+2024-09-17T13:19:31.922+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:19:49.882+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:20:31.912+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.6Mi, TotalAlloc=9.5Mi, Sys=14.4Mi, NumGC=19	caller=stat/usage.go:61
+2024-09-17T13:20:31.922+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:20:49.882+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:21:31.911+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=9.6Mi, Sys=14.4Mi, NumGC=20	caller=stat/usage.go:61
+2024-09-17T13:21:31.921+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:21:49.881+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:22:31.911+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=9.7Mi, Sys=14.4Mi, NumGC=20	caller=stat/usage.go:61
+2024-09-17T13:22:31.921+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:22:49.880+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:23:31.911+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=9.8Mi, Sys=14.4Mi, NumGC=21	caller=stat/usage.go:61
+2024-09-17T13:23:31.920+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:23:49.880+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:24:31.910+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.6Mi, TotalAlloc=9.9Mi, Sys=14.4Mi, NumGC=21	caller=stat/usage.go:61
+2024-09-17T13:24:31.920+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:24:49.880+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:25:31.910+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=10.0Mi, Sys=14.4Mi, NumGC=22	caller=stat/usage.go:61
+2024-09-17T13:25:31.919+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:25:49.879+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:26:31.910+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=10.1Mi, Sys=14.4Mi, NumGC=22	caller=stat/usage.go:61
+2024-09-17T13:26:31.919+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:26:49.878+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:27:31.909+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=10.2Mi, Sys=14.4Mi, NumGC=23	caller=stat/usage.go:61
+2024-09-17T13:27:31.918+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:27:49.878+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:28:31.908+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.6Mi, TotalAlloc=10.3Mi, Sys=14.4Mi, NumGC=23	caller=stat/usage.go:61
+2024-09-17T13:28:31.918+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:28:49.878+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:29:31.908+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.6Mi, TotalAlloc=10.5Mi, Sys=14.4Mi, NumGC=24	caller=stat/usage.go:61
+2024-09-17T13:29:31.917+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:29:49.878+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:30:31.907+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.7Mi, TotalAlloc=10.6Mi, Sys=14.4Mi, NumGC=24	caller=stat/usage.go:61
+2024-09-17T13:30:31.917+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:30:49.877+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 167.0ms, med: 167.5ms, 90th: 167.5ms, 99th: 167.5ms, 99.9th: 167.5ms	caller=stat/metrics.go:210
+2024-09-17T13:31:31.907+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=10.7Mi, Sys=14.4Mi, NumGC=25	caller=stat/usage.go:61
+2024-09-17T13:31:31.917+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:31:49.876+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:32:31.907+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=10.8Mi, Sys=14.4Mi, NumGC=25	caller=stat/usage.go:61
+2024-09-17T13:32:31.916+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:32:49.876+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:33:31.906+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=10.9Mi, Sys=14.4Mi, NumGC=26	caller=stat/usage.go:61
+2024-09-17T13:33:31.916+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:33:49.876+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:34:31.906+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=11.0Mi, Sys=14.4Mi, NumGC=26	caller=stat/usage.go:61
+2024-09-17T13:34:31.914+08:00	[32;1m stat [0;22m	dbcache(sqlc) - qpm: 1, hit_ratio: 100.0%, hit: 1, miss: 0, db_fails: 0	caller=cache/cachestat.go:71
+2024-09-17T13:34:31.915+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:34:49.875+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 134.0ms, med: 134.0ms, 90th: 134.0ms, 99th: 134.0ms, 99.9th: 134.0ms	caller=stat/metrics.go:210
+2024-09-17T13:35:31.905+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.5Mi, TotalAlloc=11.1Mi, Sys=14.4Mi, NumGC=27	caller=stat/usage.go:61
+2024-09-17T13:35:31.915+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:35:49.875+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:36:31.905+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.6Mi, TotalAlloc=11.2Mi, Sys=14.4Mi, NumGC=27	caller=stat/usage.go:61
+2024-09-17T13:36:31.914+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:36:49.874+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:37:31.904+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.4Mi, TotalAlloc=11.3Mi, Sys=14.4Mi, NumGC=28	caller=stat/usage.go:61
+2024-09-17T13:37:31.914+08:00	[32;1m stat [0;22m	(rpc) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2024-09-17T13:37:49.873+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+2024-09-17T13:38:01.058+08:00	[32;1m stat [0;22m	(user.rpc) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210

@@ -9,3 +9,4 @@ Postman-Token: ece146e2-8438-493d-b63c-49598438d898
 User-Agent: PostmanRuntime/7.42.0
 
 	caller=handler/authhandler.go:103
+2024-09-17T13:38:00.118+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35

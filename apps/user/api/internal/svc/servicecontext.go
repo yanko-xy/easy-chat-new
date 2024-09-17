@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"rpc/userclient"
+	"github.com/yanko-xy/easy-chat/apps/user/rpc/userclient"
 
 	"github.com/yanko-xy/easy-chat/apps/user/api/internal/config"
 	"github.com/zeromicro/go-zero/zrpc"

@@ -2,7 +2,6 @@ package logic
 
 import (
 	"context"
-	"errors"
 	"time"
 
 	"github.com/yanko-xy/easy-chat/apps/user/rpc/internal/svc"
