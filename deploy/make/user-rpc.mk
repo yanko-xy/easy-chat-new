@@ -14,9 +14,9 @@ APP_NAME_TEST=easy-chat-${SERVER_NAME}-${SERVER_TYPE}-test
 # 测试下的编译文件
 DOCKER_FILE_TEST=./deploy/dockerfile/Dockerfile_${SERVER_NAME}_${SERVER_TYPE}_dev
 
+
 # 测试环境的编译发布
 build-test:
-
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o bin/${SERVER_NAME}-${SERVER_TYPE} ./apps/${SERVER_NAME}/${SERVER_TYPE}/${SERVER_NAME}.go
 	docker build . -f ${DOCKER_FILE_TEST} --no-cache -t ${APP_NAME_TEST} --platform linux/amd64
 

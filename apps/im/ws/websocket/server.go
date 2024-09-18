@@ -58,6 +58,7 @@ func (s *Server) ServerWs(w http.ResponseWriter, r *http.Request) {
 	// 鉴权
 	if !s.authorization.Auth(w, r) {
 		conn.WriteMessage(websocket.TextMessage, []byte("鉴权失败，不具备访问权限"))
+		conn.Close()
 		return
 	}
 

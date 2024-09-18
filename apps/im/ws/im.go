@@ -13,9 +13,12 @@ import (
 	"github.com/yanko-xy/easy-chat/apps/im/ws/internal/svc"
 	"github.com/yanko-xy/easy-chat/apps/im/ws/websocket"
 	"github.com/zeromicro/go-zero/core/conf"
+	"github.com/zeromicro/go-zero/core/logx"
+	"os"
 )
 
 var configFile = flag.String("f", "etc/dev/im.yaml", "the config file")
+var logConfigFile = flag.String("log", "../../etc/log.yaml", "log config file")
 
 func main() {
 	flag.Parse()
@@ -23,14 +26,20 @@ func main() {
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
 
+	// 设置日志配置
+	var lc logx.LogConf
+	conf.MustLoad(*logConfigFile, &lc)
+	logx.MustSetup(lc)
+	logx.AddWriter(logx.NewWriter(os.Stdout))
+
 	if err := c.SetUp(); err != nil {
 		panic(err)
 	}
 
-	srv := websocket.NewServer(c.ListenOn)
+	ctx := svc.NewServiceContext(c)
+	srv := websocket.NewServer(c.ListenOn, websocket.WithServerAuthorization(handler.NewJwtAuth(ctx)))
 	defer srv.Stop()
 
-	ctx := svc.NewServiceContext(c)
 	handler.RegisterHandlers(srv, ctx)
 
 	fmt.Println("start websocket server at", c.ListenOn, "...")
