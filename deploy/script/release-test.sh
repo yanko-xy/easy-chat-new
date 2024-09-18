@@ -1,3 +1,4 @@
+#!/bin/bash
 need_start_server_shell=(
     # rpc
     user-rpc-test.sh
@@ -13,4 +14,4 @@ done
 
 docker ps
 
-# docker exec -it etcd etcdctl get --prefix ""
+ docker exec -it etcd etcdctl get --prefix ""

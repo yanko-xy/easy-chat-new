@@ -174,3 +174,4 @@
 2024-09-17T13:37:53.226+08:00	[32;1m stat [0;22m	CPU: 0m, MEMORY: Alloc=3.2Mi, TotalAlloc=7.6Mi, Sys=14.4Mi, NumGC=28	caller=stat/usage.go:61
 2024-09-17T13:37:53.378+08:00	[32;1m stat [0;22m	(api) shedding_stat [1m], cpu: 0, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
 2024-09-17T13:38:01.058+08:00	[32;1m stat [0;22m	(user) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210
+{"@timestamp":"2024-09-18T16:25:00.799+08:00","caller":"p2c/p2c.go:195","content":"p2c - conn: 8.210.220.252:10000, load: 18462, reqs: 1","level":"stat"}

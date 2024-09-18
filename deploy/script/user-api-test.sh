@@ -1,4 +1,4 @@
-#!/bin/bash
+
 reso_addr='registry.cn-hangzhou.aliyuncs.com/easy-chat-xy/user-api-dev'
 tag='latest'
 
