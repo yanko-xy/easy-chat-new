@@ -1,0 +1,1 @@
+{"@timestamp":"2024-09-18T14:58:32.300+08:00","caller":"proc/shutdown.go:58","content":"Got signal 2, shutting down...","level":"info"}
