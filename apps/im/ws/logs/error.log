@@ -1,2 +1,11 @@
 {"@timestamp":"2024-09-18T13:37:26.961+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
 {"@timestamp":"2024-09-18T13:37:32.070+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
+{"@timestamp":"2024-09-18T18:29:28.950+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
+{"@timestamp":"2024-09-18T18:30:06.679+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
+{"@timestamp":"2024-09-18T18:30:17.160+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
+{"@timestamp":"2024-09-18T18:31:08.055+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
+{"@timestamp":"2024-09-18T18:32:29.074+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
+{"@timestamp":"2024-09-18T18:33:29.690+08:00","caller":"websocket/server.go:88","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
+{"@timestamp":"2024-09-18T18:33:40.121+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
+{"@timestamp":"2024-09-18T18:36:06.780+08:00","caller":"websocket/server.go:88","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
+{"@timestamp":"2024-09-18T18:39:41.253+08:00","caller":"websocket/server.go:88","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
