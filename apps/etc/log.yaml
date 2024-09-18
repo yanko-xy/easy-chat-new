@@ -2,4 +2,4 @@ Mode: file
 Path: logs
 Level: info
 KeepDays: 30
-Encoding: plain
+Encoding: json
