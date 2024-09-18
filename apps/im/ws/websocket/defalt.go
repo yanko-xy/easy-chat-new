@@ -5,7 +5,14 @@
 
 package websocket
 
+import (
+	"math"
+	"time"
+)
+
 var (
 	defaultAuthorization = new(authorization)
 	defaultPattrn        = "/ws"
+
+	defaultMaxConnectionIdle = time.Duration(math.MaxInt64)
 )

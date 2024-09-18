@@ -18,6 +18,10 @@ type Authorization interface {
 
 type authorization struct{}
 
+func NewDefaultAuthorization() *authorization {
+	return &authorization{}
+}
+
 func (*authorization) Auth(w http.ResponseWriter, r *http.Request) bool {
 	return true
 }
