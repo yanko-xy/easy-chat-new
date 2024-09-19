@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 // SocialClient is the client API for Social service.
 //
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+// For semantics around svc use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SocialClient interface {
 	// 好友业务：请求好友、通过或拒绝申请、好友列表
 	FriendPutIn(ctx context.Context, in *FriendPutInReq, opts ...grpc.CallOption) (*FriendPutInResp, error)

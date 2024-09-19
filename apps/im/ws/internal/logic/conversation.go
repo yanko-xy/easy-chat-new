@@ -41,8 +41,8 @@ func (l *Conversation) SingleChat(data *ws.Chat, userId string) error {
 		RecvId:         data.RecvId,
 		MsgFrom:        0,
 		ChatType:       data.ChatType,
-		MsgType:        data.Msg.MType,
-		MsgContent:     data.Msg.Content,
+		MsgType:        data.MType,
+		MsgContent:     data.Content,
 		SendTime:       time.Now().UnixNano(),
 	}
 	err := l.svc.ChatLogModel.Insert(l.ctx, &chatLog)

@@ -35,6 +35,10 @@ func main() {
 
 	ctx := svc.NewServiceContext(c)
 
+	if err := ctx.SetRootToken(); err != nil {
+		panic(err)
+	}
+
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
 		user.RegisterUserServer(grpcServer, server.NewUserServer(ctx))
 
