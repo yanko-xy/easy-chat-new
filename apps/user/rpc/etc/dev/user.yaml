@@ -9,9 +9,9 @@ Mysql:
   DataSource: root:easy-chat@tcp(120.26.209.19:13306)/easy-chat?charset=utf8mb4&parseTime=true&loc=Local
 
 Redisx:
-  - Host: 120.26.209.19:16379
-    Type: node
-    Pass: easy-chat
+  Host: 120.26.209.19:16379
+  Type: node
+  Pass: easy-chat
 
 Cache:
   - Host: 120.26.209.19:16379

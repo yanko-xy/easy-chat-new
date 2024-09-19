@@ -87,3 +87,4 @@
 2024-09-17T13:29:52.340+08:00	[34;1m info [0;22m	172.20.10.6:57504 - /user.User/FindUser - {"ids":["0x0000001000000001","0x0000003000000001","0x0000005000000001","0x0000006000000004"]}	duration=167.5ms	caller=serverinterceptors/statinterceptor.go:90	trace=1d5e56d7fa012c371a60b70b052272d6	span=ced7f273cf9cdf4d
 2024-09-17T13:34:11.210+08:00	[34;1m info [0;22m	172.20.10.6:57485 - /user.User/Login - {"phone":"18758004746","password":"123456"}	span=aba683fa0033d5d5	duration=134.0ms	caller=serverinterceptors/statinterceptor.go:90	trace=62827df7070053a79ebead232f3808ef
 2024-09-17T13:38:00.056+08:00	[34;1m info [0;22m	Got signal 2, shutting down...	caller=proc/shutdown.go:58
+{"@timestamp":"2024-09-19T21:32:47.817+08:00","caller":"proc/shutdown.go:58","content":"Got signal 2, shutting down...","level":"info"}
