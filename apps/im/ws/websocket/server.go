@@ -88,6 +88,10 @@ func (s *Server) addConn(conn *Conn, req *http.Request) {
 
 // 根据连接对象执行任务处理
 func (s *Server) handleConn(conn *Conn) {
+
+	uids := s.GetUsers(conn)
+	conn.Uid = uids[0]
+
 	for {
 		// 获取请求信息
 		_, msg, err := conn.ReadMessage()
