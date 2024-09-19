@@ -28,6 +28,7 @@ type (
 		SendId         string             `mapstructure:"sendId" json:"sendId"`
 		RecvId         string             `mapstructure:"recvId" json:"recvId"`
 		SendTime       int64              `mapstructure:"sendTime" json:"sendTime"`
-		Msg            `mapstructure:"msg"`
+		MType          constants.MType    `mapstructure:"mType" json:"mType"`
+		Content        string             `mapstructure:"content" json:"content"`
 	}
 )
