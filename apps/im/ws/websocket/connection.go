@@ -14,13 +14,20 @@ import (
 )
 
 type Conn struct {
-	idlemu sync.Mutex
 	*websocket.Conn
-	Uid               string
-	s                 *Server
+	Uid string
+	s   *Server
+
+	idleMu            sync.Mutex
 	idle              time.Time
 	maxConnectionIdle time.Duration
-	done              chan struct{}
+
+	messageMu       sync.Mutex
+	readMessages    []*Message
+	readMessagesSeq map[string]*Message
+	message         chan *Message
+
+	done chan struct{}
 }
 
 func NewConn(s *Server, w http.ResponseWriter, r *http.Request) *Conn {
@@ -31,11 +38,17 @@ func NewConn(s *Server, w http.ResponseWriter, r *http.Request) *Conn {
 	}
 
 	conn := &Conn{
-		Conn:              c,
-		s:                 s,
+		Conn: c,
+		s:    s,
+
 		idle:              time.Now(),
 		maxConnectionIdle: s.opt.maxConnectionIdle,
-		done:              make(chan struct{}),
+
+		readMessages:    make([]*Message, 0, 2),
+		readMessagesSeq: make(map[string]*Message, 2),
+		message:         make(chan *Message, 1),
+
+		done: make(chan struct{}),
 	}
 
 	go conn.keepalive()
@@ -50,20 +63,20 @@ func (c *Conn) keepalive() {
 	for {
 		select {
 		case <-idleTimer.C:
-			c.idlemu.Lock()
+			c.idleMu.Lock()
 			idle := c.idle
 
 			fmt.Printf("idle %v, maxIdle %v", c.idle, c.maxConnectionIdle)
 			if idle.IsZero() {
 				// the connection is non-idle
-				c.idlemu.Unlock()
+				c.idleMu.Unlock()
 				idleTimer.Reset(c.maxConnectionIdle)
 				continue
 			}
 
 			val := c.maxConnectionIdle - time.Since(idle)
 			fmt.Printf("val %v\n", val)
-			c.idlemu.Unlock()
+			c.idleMu.Unlock()
 			if val < 0 {
 				// the connection has been idle for a duration of keepalive.MaxConnectionIdle or more
 				// Gracefully close the connection
@@ -78,11 +91,43 @@ func (c *Conn) keepalive() {
 	}
 }
 
+// 将消息记录到队列中
+func (c *Conn) appendMsgMq(msg *Message) {
+	c.messageMu.Lock()
+	defer c.messageMu.Unlock()
+
+	// 读队列中
+	if m, ok := c.readMessagesSeq[msg.Id]; ok {
+		// 已经有消息的记录，该消息已经有ack确认
+		if len(c.readMessages) == 0 {
+			// 队列中没有该消息
+			return
+		}
+
+		// msg.AckSeq > m.AckSqe
+		if m.Id != msg.Id || m.AckSeq >= msg.AckSeq {
+			// 没有进行ack的确认，重复
+			return
+		}
+
+		c.readMessagesSeq[msg.Id] = msg
+		return
+	}
+
+	// 还没有进行ack的确认，避免客户端重复发送多余的ack消息
+	if msg.FrameType == FrameAck {
+		return
+	}
+
+	c.readMessages = append(c.readMessages, msg)
+	c.readMessagesSeq[msg.Id] = msg
+}
+
 func (c *Conn) ReadMessage() (messageType int, p []byte, err error) {
 	// 开始忙碌
 	messageType, p, err = c.Conn.ReadMessage()
-	c.idlemu.Lock()
-	defer c.idlemu.Unlock()
+	c.idleMu.Lock()
+	defer c.idleMu.Unlock()
 	c.idle = time.Time{}
 	return
 }
@@ -90,8 +135,8 @@ func (c *Conn) ReadMessage() (messageType int, p []byte, err error) {
 func (c *Conn) WriteMessage(messageType int, data []byte) error {
 	err := c.Conn.WriteMessage(messageType, data)
 	// 当写操作完成后当前连接就会进入空闲状态，并记录空闲状态
-	c.idlemu.Lock()
-	defer c.idlemu.Unlock()
+	c.idleMu.Lock()
+	defer c.idleMu.Unlock()
 	c.idle = time.Now()
 	return err
 }

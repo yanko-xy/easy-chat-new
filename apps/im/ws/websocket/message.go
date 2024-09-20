@@ -5,16 +5,24 @@
 
 package websocket
 
+import "time"
+
 type FrameType uint8
 
 const (
-	FrameData FrameType = 0x0
-	FramePing FrameType = 0x1
-	FrameErr  FrameType = 0x2
+	FrameData  FrameType = 0x0
+	FramePing  FrameType = 0x1
+	FrameAck   FrameType = 0x2
+	FrameNoAck FrameType = 0x3
+	FrameErr   FrameType = 0x9
 )
 
 type Message struct {
-	FrameType FrameType   `json:"frameType"`
+	FrameType FrameType `json:"frameType"`
+	Id        string    `json:"id"`
+	AckSeq    int       `json:"ackSeq"`
+	ackTime   time.Time
+	errCount  int
 	Method    string      `json:"method"`
 	FormId    string      `json:"formId"`
 	Data      interface{} `json:"data"` // map[string]interface{}
