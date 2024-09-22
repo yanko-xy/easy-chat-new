@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"sort"
 	"strconv"
+	"strings"
 
 	"github.com/edwingeng/wuid/mysql/wuid"
 )
@@ -43,4 +44,8 @@ func CombineId(aid, bid string) string {
 	})
 
 	return fmt.Sprintf("%s_%s", ids[0], ids[1])
+}
+
+func DeCombineId(id string) []string {
+	return strings.Split(id, "_")
 }

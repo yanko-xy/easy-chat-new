@@ -25,6 +25,10 @@ func NewDBErr() error {
 	return errors.New(DB_ERROR, ErrMsg(DB_ERROR))
 }
 
+func NewParameterErr(msg string) error {
+	return errors.New(PARAMETER_ERROR, msg)
+}
+
 func NewReqParamErr() error {
 	return errors.New(REQUEST_PARAM_ERROR, ErrMsg(REQUEST_PARAM_ERROR))
 }

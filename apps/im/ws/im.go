@@ -39,7 +39,7 @@ func main() {
 	ctx := svc.NewServiceContext(c)
 	srv := websocket.NewServer(c.ListenOn,
 		websocket.WithServerAuthorization(handler.NewJwtAuth(ctx)),
-		websocket.WithServerAck(websocket.RigorAck),
+		//websocket.WithServerAck(websocket.RigorAck),
 		// 心跳检测
 		//websocket.WithServerMaxConnectionIdle(10*time.Second),
 	)

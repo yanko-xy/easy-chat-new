@@ -6,6 +6,7 @@ var CodeTest = map[int]string{
 	TOKEN_EXPIRE_ERROR:      "token已过期，请重新登录",
 	DB_ERROR:                "数据库繁忙，请稍后再试",
 	ILLEGAL_OPERATION_ERROR: "非法操作",
+	PARAMETER_ERROR:         "参数错误",
 }
 
 func ErrMsg(errcode int) string {

@@ -1,0 +1,36 @@
+syntax = "v1"
+
+
+info (
+	title: "im消息服务实例对象"
+	author: "yanko"
+)
+
+type (
+	ChatLog {
+		Id             string `json:"id,omitempty"`
+		ConversationId string `json:"conversationId,omitempty"`
+		SendId         string `json:"sendId,omitempty"`
+		RecvId         string `json:"recvId,omitempty"`
+		MsgType        int32  `json:"msgType,omitempty"`
+		MsgContent     string `json:"msgContent,omitempty"`
+		ChatType       int32  `json:"chatType,omitempty"`
+		SendTime       int64  `json:"sendTime,omitempty"`
+	}
+
+	Msg {
+		MsgType        int32  `json:"msgType"`
+		MsgContent     string `json:"msgContent"`
+	}
+
+	Conversation {
+		ConversationId string `json:"conversationId,omitempty"`
+		ChatType       int32  `json:"chatType,omitempty"`
+		IsShow         bool   `json:"isShow,omitempty"`
+		Seq            int64  `json:"seq,omitempty"`
+		Read           int32  `json:"read,omitempty"`
+		Total          int64  `json:"total,optional"`
+		ToRead         int64  `json:"toRead,optional"`
+		Msg            Msg    `json:"msg,optional,omitempty"`
+	}
+)

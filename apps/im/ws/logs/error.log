@@ -1,28 +1,10 @@
-{"@timestamp":"2024-09-18T13:37:26.961+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
-{"@timestamp":"2024-09-18T13:37:32.070+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
-{"@timestamp":"2024-09-18T18:29:28.950+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
-{"@timestamp":"2024-09-18T18:30:06.679+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
-{"@timestamp":"2024-09-18T18:30:17.160+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
-{"@timestamp":"2024-09-18T18:31:08.055+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
-{"@timestamp":"2024-09-18T18:32:29.074+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
-{"@timestamp":"2024-09-18T18:33:29.690+08:00","caller":"websocket/server.go:88","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-18T18:33:40.121+08:00","caller":"handler/auth.go:27","content":"parse token err no token present in request","level":"error"}
-{"@timestamp":"2024-09-18T18:36:06.780+08:00","caller":"websocket/server.go:88","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-18T18:39:41.253+08:00","caller":"websocket/server.go:88","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-18T20:31:40.362+08:00","caller":"websocket/server.go:95","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:64652: use of closed network connection","level":"error"}
-{"@timestamp":"2024-09-18T20:32:28.581+08:00","caller":"websocket/server.go:95","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:50225: use of closed network connection","level":"error"}
-{"@timestamp":"2024-09-19T17:34:43.560+08:00","caller":"websocket/server.go:107","content":"websocket conn read message unmarshal err invalid character 'ï' after object key:value pair, msg {\r\n    \"frameType\": 0,\r\n    \"method\": \"conversation.chat\",\r\n    \"data\": {\r\n        \"chatType\": 2,\r\n        \"recvId\": \"0x0000001000000001\",\r\n        \"msg\": {\r\n            \"mType\": 0，\r\n            ”content“: \"hello\"\r\n        }\r\n    }\r\n}","level":"error"}
-{"@timestamp":"2024-09-19T17:35:57.508+08:00","caller":"websocket/server.go:107","content":"websocket conn read message unmarshal err invalid character 'ï' after object key:value pair, msg {\r\n    \"frameType\": 0,\r\n    \"method\": \"conversation.chat\",\r\n    \"data\": {\r\n        \"chatType\": 2,\r\n        \"recvId\": \"0x0000001000000001\",\r\n        \"msg\": {\r\n            \"mType\": 0，\r\n            \"content\": \"hello\"\r\n        }\r\n    }\r\n}","level":"error"}
-{"@timestamp":"2024-09-20T13:55:28.288+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:50624: use of closed network connection","level":"error"}
-{"@timestamp":"2024-09-20T14:21:40.305+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-20T14:27:24.265+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:65462: use of closed network connection","level":"error"}
-{"@timestamp":"2024-09-20T14:28:07.648+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:49751: use of closed network connection","level":"error"}
-{"@timestamp":"2024-09-20T14:31:41.114+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:55875: use of closed network connection","level":"error"}
-{"@timestamp":"2024-09-20T14:31:44.632+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-20T14:36:25.182+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-20T14:36:48.870+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-20T14:44:38.492+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-20T14:45:37.236+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-20T14:48:20.643+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-20T15:13:31.507+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
-{"@timestamp":"2024-09-20T15:39:16.140+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
+{"@timestamp":"2024-09-21T08:44:27.282+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
+{"@timestamp":"2024-09-21T16:37:34.185+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
+{"@timestamp":"2024-09-21T16:41:27.195+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:61689: wsarecv: An existing connection was forcibly closed by the remote host.","level":"error"}
+{"@timestamp":"2024-09-21T16:42:12.367+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:65322: wsarecv: An existing connection was forcibly closed by the remote host.","level":"error"}
+{"@timestamp":"2024-09-21T16:44:22.062+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:49879: wsarecv: An existing connection was forcibly closed by the remote host.","level":"error"}
+{"@timestamp":"2024-09-21T16:45:13.095+08:00","caller":"websocket/server.go:120","content":"websocket conn read message unmarshal err unexpected end of JSON input, msg ","level":"error"}
+{"@timestamp":"2024-09-21T16:47:24.064+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
+{"@timestamp":"2024-09-21T19:55:02.284+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err read tcp 127.0.0.1:10090->127.0.0.1:53865: wsarecv: An existing connection was forcibly closed by the remote host.","level":"error"}
+{"@timestamp":"2024-09-21T21:29:47.484+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
+{"@timestamp":"2024-09-21T21:31:09.641+08:00","caller":"websocket/server.go:112","content":"websocket conn read message err websocket: close 1000 (normal)","level":"error"}
