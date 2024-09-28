@@ -14,5 +14,10 @@ UserRpc:
       - 120.26.209.19:3379
     Key: user.rpc
 
+Redisx:
+  Host: 120.26.209.19:16379
+  Type: node
+  Pass: easy-chat
+
 JwtAuth:
   AccessSecret: github.com

@@ -1898,3 +1898,5 @@ created by google.golang.org/grpc.(*Server).serveStreams.func2 in goroutine 119
 {"@timestamp":"2024-09-27T18:36:59.666+08:00","caller":"discov/publisher.go:178","content":"etcd publisher revoke: etcdserver: requested lease not found","level":"error"}
 {"@timestamp":"2024-09-27T19:23:43.157+08:00","caller":"discov/publisher.go:178","content":"etcd publisher revoke: etcdserver: requested lease not found","level":"error"}
 {"@timestamp":"2024-09-28T13:10:16.492+08:00","caller":"discov/publisher.go:178","content":"etcd publisher revoke: etcdserver: requested lease not found","level":"error"}
+{"@timestamp":"2024-09-28T14:23:49.994+08:00","caller":"discov/publisher.go:178","content":"etcd publisher revoke: etcdserver: requested lease not found","level":"error"}
+{"@timestamp":"2024-09-28T14:49:48.348+08:00","caller":"discov/publisher.go:178","content":"etcd publisher revoke: etcdserver: requested lease not found","level":"error"}

@@ -11,3 +11,5 @@ User-Agent: PostmanRuntime/7.42.0
 	caller=handler/authhandler.go:103
 2024-09-17T13:38:00.118+08:00	[31;1m error [0;22m	bad resolver state	caller=internal/discovbuilder.go:35
 {"@timestamp":"2024-09-23T19:36:17.001+08:00","caller":"resultx/httpResponse.go:57","content":"【user】err field \"nickname\" is not set","level":"error","span":"83d3d2f66a4b5e44","trace":"4a8da5e1d9c8b19390363f559a5b0751"}
+{"@timestamp":"2024-09-28T15:44:42.217+08:00","caller":"internal/discovbuilder.go:35","content":"bad resolver state","level":"error"}
+{"@timestamp":"2024-09-28T15:47:44.776+08:00","caller":"handler/authhandler.go:103","content":"authorize failed: no token present in request\n=> POST /v1/user/logout HTTP/1.1\r\nHost: 127.0.0.1:8888\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 0\r\nPostman-Token: e12231ae-c9e0-4ff0-8912-4d8b1005bedb\r\nUser-Agent: PostmanRuntime/7.42.0\r\n\r\n","level":"error"}

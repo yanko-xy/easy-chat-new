@@ -39,6 +39,11 @@ type (
 )
 
 type (
+    LogoutReq {}
+    LogoutResp {}
+)
+
+type (
     UserInfoReq {}
     UserInfoResp {
         Info User `json:"info"`

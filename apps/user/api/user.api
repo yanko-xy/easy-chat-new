@@ -34,5 +34,9 @@ service user {
 	@doc "获取用户信息"
 	@handler detail
 	get /user (UserInfoReq) returns (UserInfoResp)
+
+	@doc "退出登录"
+	@handler logout
+	post /logout (LogoutReq) returns (LogoutResp)
 }
 

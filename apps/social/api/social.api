@@ -30,6 +30,10 @@ service social {
 	@doc "好友列表"
 	@handler friendList
 	get /friends (FriendListReq) returns (FriendListResp)
+
+	@doc "好友在线情况"
+	@handler friendsOnline
+	get /friends/online (FriendsOnlineReq) returns (FriendsOnlineResp)
 }
 
 @server (
@@ -61,5 +65,9 @@ service social {
 	@doc "成员列表列表"
 	@handler groupUserList
 	get /group/users (GroupUserListReq) returns (GroupUserListResp)
+
+	@doc "群在线用户"
+	@handler groupUserOnline
+	get /group/users/online (GroupUserOnlineReq) returns (GroupUserOnlineResp)
 }
 

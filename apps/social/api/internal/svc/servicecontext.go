@@ -4,6 +4,7 @@ import (
 	"github.com/yanko-xy/easy-chat/apps/social/api/internal/config"
 	"github.com/yanko-xy/easy-chat/apps/social/rpc/socialclient"
 	"github.com/yanko-xy/easy-chat/apps/user/rpc/userclient"
+	"github.com/zeromicro/go-zero/core/stores/redis"
 	"github.com/zeromicro/go-zero/zrpc"
 )
 
@@ -12,6 +13,8 @@ type ServiceContext struct {
 
 	socialclient.Social
 	userclient.User
+
+	*redis.Redis
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
@@ -20,5 +23,7 @@ func NewServiceContext(c config.Config) *ServiceContext {
 
 		Social: socialclient.NewSocial(zrpc.MustNewClient(c.SocialRpc)),
 		User:   userclient.NewUser(zrpc.MustNewClient(c.UserRpc)),
+
+		Redis: redis.MustNewRedis(c.Redisx),
 	}
 }

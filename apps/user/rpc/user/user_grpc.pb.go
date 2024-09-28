@@ -242,7 +242,7 @@ func _User_FindUser_Handler(srv interface{}, ctx context.Context, dec func(inter
 
 // User_ServiceDesc is the grpc.ServiceDesc for User service.
 // It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a xcopy)
+// and not to be introspected or modified (even as a copy)
 var User_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "user.User",
 	HandlerType: (*UserServer)(nil),

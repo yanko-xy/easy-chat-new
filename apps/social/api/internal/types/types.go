@@ -5,7 +5,7 @@ package types
 
 type Friend struct {
 	Id        int64  `json:"id,omitempty"`
-	FriendUid string `json:"friend_uid,omitempty"`
+	FriendUid string `json:"friendUid,omitempty"`
 	Nickname  string `json:"nickname,omitempty"`
 	Avatar    string `json:"avatar,omitempty"`
 	Remark    string `json:"remark,omitempty"`
@@ -19,9 +19,9 @@ type FriendListResp struct {
 }
 
 type FriendPutInHandleReq struct {
-	FriendReqId  int32  `json:"friend_req_id,omitempty"`
-	HandleResult int32  `json:"handle_result,omitempty"` // 处理结果
-	HandleMsg    string `json:"handle_msg,omitempty"`
+	FriendReqId  int32  `json:"friendReqId,omitempty"`
+	HandleResult int32  `json:"handleResult,omitempty"` // 处理结果
+	HandleMsg    string `json:"handleMsg,omitempty"`
 }
 
 type FriendPutInHandleResp struct {
@@ -35,8 +35,8 @@ type FriendPutInListResp struct {
 }
 
 type FriendPutInReq struct {
-	ReqMsg string `json:"req_msg,omitempty"`
-	UserId string `json:"user_id"`
+	ReqMsg string `json:"reqMsg,omitempty"`
+	UserId string `json:"userId"`
 }
 
 type FriendPutInResp struct {
@@ -44,12 +44,19 @@ type FriendPutInResp struct {
 
 type FriendRequest struct {
 	Id           int64  `json:"id,omitempty"`
-	UserId       string `json:"user_id,omitempty"`
-	ReqUid       string `json:"req_uid,omitempty"`
-	ReqMsg       string `json:"req_msg,omitempty"`
-	ReqTime      int64  `json:"req_time,omitempty"`
-	HandleResult int    `json:"handle_result,omitempty"`
-	HandleMsg    string `json:"handle_msg,omitempty"`
+	UserId       string `json:"userId,omitempty"`
+	ReqUid       string `json:"reqUid,omitempty"`
+	ReqMsg       string `json:"reqMsg,omitempty"`
+	ReqTime      int64  `json:"reqTime,omitempty"`
+	HandleResult int    `json:"handleResult,omitempty"`
+	HandleMsg    string `json:"handleMsg,omitempty"`
+}
+
+type FriendsOnlineReq struct {
+}
+
+type FriendsOnlineResp struct {
+	OnlineList map[string]bool `json:"onLineList"`
 }
 
 type Group struct {
@@ -76,7 +83,7 @@ type GroupListReq struct {
 }
 
 type GroupListResp struct {
-	List []*Group `json:"list,omitempty"`
+	List []*Group `form:"list,omitempty"`
 }
 
 type GroupMember struct {
@@ -84,7 +91,7 @@ type GroupMember struct {
 	GroupId       string `json:"groupId,omitempty"`
 	UserId        string `json:"userId,omitempty"`
 	Nickname      string `json:"nickname,omitempty"`
-	UserAvatarUrl string `json:"userAvatar_url,omitempty"`
+	UserAvatarUrl string `json:"userAvatarUrl,omitempty"`
 	RoleLevel     int    `json:"roleLevel,omitempty"`
 	InviterUid    string `json:"inviterUid,omitempty"`
 	OperatorUid   string `json:"operatorUid,omitempty"`
@@ -100,7 +107,7 @@ type GroupPutInHandleResp struct {
 }
 
 type GroupPutInListReq struct {
-	GroupId string `json:"groupId,omitempty"`
+	GroupId string `form:"groupId,omitempty"`
 }
 
 type GroupPutInListResp struct {
@@ -124,16 +131,24 @@ type GroupRequest struct {
 	ReqMsg        string `json:"reqMsg,omitempty"`
 	ReqTime       int64  `json:"reqTime,omitempty"`
 	JoinSource    int64  `json:"joinSource,omitempty"`
-	InviterUserId string `json:"inviterUser_id,omitempty"`
-	HandleUserId  string `json:"handleUser_id,omitempty"`
+	InviterUserId string `json:"inviterUserId,omitempty"`
+	HandleUserId  string `json:"handleUserId,omitempty"`
 	HandleTime    int64  `json:"handleTime,omitempty"`
 	HandleResult  int64  `json:"handleResult,omitempty"`
 }
 
 type GroupUserListReq struct {
-	GroupId string `json:"groupId,omitempty"`
+	GroupId string `form:"groupId,omitempty"`
 }
 
 type GroupUserListResp struct {
 	List []*GroupMember `json:"list,omitempty"`
+}
+
+type GroupUserOnlineReq struct {
+	GroupId string `form:"groupId"`
+}
+
+type GroupUserOnlineResp struct {
+	OnlineList map[string]bool `json:"onLineList"`
 }

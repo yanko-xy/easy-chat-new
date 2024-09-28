@@ -61,5 +61,6 @@ func (l *LoginLogic) Login(in *user.LoginReq) (*user.LoginResp, error) {
 	return &user.LoginResp{
 		Token:  token,
 		Expire: now + l.svcCtx.Config.Jwt.AccessExpire,
+		Id:     userEntity.Id,
 	}, nil
 }

@@ -50,7 +50,7 @@ func (l *RegisterLogic) Register(in *user.RegisterReq) (*user.RegisterResp, erro
 
 	// 定义用户数据变量
 	userEntity = &models.User{
-		Id:       wuid.GetUid(l.svcCtx.Config.Mysql.DataSource),
+		Id:       wuid.GenUid(l.svcCtx.Config.Mysql.DataSource),
 		Avatar:   in.Avatar,
 		Nickname: in.Nickname,
 		Phone:    in.Phone,
