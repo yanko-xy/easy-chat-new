@@ -2,7 +2,7 @@
 
 server_name="im"
 server_type="ws"
-port = 10090
+port=10090
 
 reso_addr="registry.cn-hangzhou.aliyuncs.com/easy-chat-xy/${server_name}-${server_type}-dev"
 tag='latest'

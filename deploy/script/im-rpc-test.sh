@@ -2,7 +2,7 @@
 
 server_name="im"
 server_type="rpc"
-port = 10002
+port=10002
 
 reso_addr="registry.cn-hangzhou.aliyuncs.com/easy-chat-xy/${server_name}-${server_type}-dev"
 tag='latest'
