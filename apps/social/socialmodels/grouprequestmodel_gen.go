@@ -27,9 +27,12 @@ var (
 
 type (
 	groupRequestModel interface {
+		Trans(ctx context.Context, fn func(context.Context, sqlx.Session) error) error
 		Insert(ctx context.Context, data *GroupRequest) (sql.Result, error)
 		FindOne(ctx context.Context, id uint64) (*GroupRequest, error)
-		Update(ctx context.Context, data *GroupRequest) error
+		FindByGroupIdAndReqUid(ctx context.Context, groupId, reqUid string) (*GroupRequest, error)
+		ListNoHandle(ctx context.Context, groupId string) ([]*GroupRequest, error)
+		Update(ctx context.Context, session sqlx.Session, data *GroupRequest) error
 		Delete(ctx context.Context, id uint64) error
 	}
 
@@ -62,6 +65,12 @@ func newGroupRequestModel(conn sqlx.SqlConn, c cache.CacheConf, opts ...cache.Op
 	}
 }
 
+func (m *defaultGroupRequestModel) Trans(ctx context.Context, fn func(context.Context, sqlx.Session) error) error {
+	return m.TransactCtx(ctx, func(ctx context.Context, session sqlx.Session) error {
+		return fn(ctx, session)
+	})
+}
+
 func (m *defaultGroupRequestModel) Delete(ctx context.Context, id uint64) error {
 	groupRequestIdKey := fmt.Sprintf("%s%v", cacheGroupRequestIdPrefix, id)
 	_, err := m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
@@ -88,6 +97,33 @@ func (m *defaultGroupRequestModel) FindOne(ctx context.Context, id uint64) (*Gro
 	}
 }
 
+func (m *defaultGroupRequestModel) FindByGroupIdAndReqUid(ctx context.Context, groupId, reqUid string) (*GroupRequest, error)  {
+	query := fmt.Sprintf("select %s from %s where `group_id` = ? and `req_id` = ?", groupRequestRows, m.table)
+
+	var resp GroupRequest
+	err := m.QueryRowNoCacheCtx(ctx, &resp, query,  groupId, reqUid)
+	switch err {
+	case nil:
+		return &resp, nil
+	case sqlc.ErrNotFound:
+		return nil, ErrNotFound
+	default:
+		return nil, err
+	}
+}
+
+func (m *defaultGroupRequestModel) ListNoHandle(ctx context.Context, groupId string) ([]*GroupRequest, error)  {
+	query := fmt.Sprintf("select %s from %s where `group_id` = ? and `handle_result` = 1", groupRequestRows, m.table)
+	var resp []*GroupRequest
+	err := m.QueryRowsNoCacheCtx(ctx, &resp, query, groupId)
+	switch err {
+	case nil:
+		return resp, nil
+	default:
+		return nil, err
+	}
+}
+
 func (m *defaultGroupRequestModel) Insert(ctx context.Context, data *GroupRequest) (sql.Result, error) {
 	groupRequestIdKey := fmt.Sprintf("%s%v", cacheGroupRequestIdPrefix, data.Id)
 	ret, err := m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
@@ -97,14 +133,18 @@ func (m *defaultGroupRequestModel) Insert(ctx context.Context, data *GroupReques
 	return ret, err
 }
 
-func (m *defaultGroupRequestModel) Update(ctx context.Context, data *GroupRequest) error {
+func (m *defaultGroupRequestModel) Update(ctx context.Context, session sqlx.Session, data *GroupRequest) error {
 	groupRequestIdKey := fmt.Sprintf("%s%v", cacheGroupRequestIdPrefix, data.Id)
 	_, err := m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
 		query := fmt.Sprintf("update %s set %s where `id` = ?", m.table, groupRequestRowsWithPlaceHolder)
+		if session != nil {
+			return session.ExecCtx(ctx, query, data.ReqId, data.GroupId, data.ReqMsg, data.ReqTime, data.JoinSource, data.InviterUserId, data.HandleUserId, data.HandleTime, data.HandleResult, data.DeletedAt, data.Id)
+		}
 		return conn.ExecCtx(ctx, query, data.ReqId, data.GroupId, data.ReqMsg, data.ReqTime, data.JoinSource, data.InviterUserId, data.HandleUserId, data.HandleTime, data.HandleResult, data.DeletedAt, data.Id)
 	}, groupRequestIdKey)
 	return err
 }
+
 
 func (m *defaultGroupRequestModel) formatPrimary(primary any) string {
 	return fmt.Sprintf("%s%v", cacheGroupRequestIdPrefix, primary)

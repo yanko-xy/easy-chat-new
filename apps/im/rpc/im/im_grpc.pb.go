@@ -250,7 +250,7 @@ func _Im_CreateGroupConversation_Handler(srv interface{}, ctx context.Context, d
 
 // Im_ServiceDesc is the grpc.ServiceDesc for Im service.
 // It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
+// and not to be introspected or modified (even as a xcopy)
 var Im_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "im.Im",
 	HandlerType: (*ImServer)(nil),

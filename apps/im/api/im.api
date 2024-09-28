@@ -9,38 +9,7 @@ import (
 	"domain.api"
 )
 
-type (
-	ChatLogReq {
-		MsgId          string `form:"msgId,optional"`
-		ConversationId string `form:"conversationId"`
-		StartSendTime  int64  `form:"startSendTime,omitempty,optional"`
-		EndSendTime    int64  `form:"endSendTime,omitempty,optional"`
-		Count          int64  `form:"count,omitempty,optional"`
-	}
-	ChatLogResp {
-		List []*ChatLog `json:"list"`
-	}
-	GetConversationsReq  {}
-	GetConversationsResp {
-		ConversationList map[string]*Conversation `json:"conversationList"`
-	}
-	PutConversationsReq {
-		ConversationList map[string]*Conversation `json:"conversationList"`
-	}
-	PutConversationsResp  {}
-	SetUpUserConversationReq {
-		RecvId   string `json:"recvId,omitempty"`
-		ChatType int32  `json:"chatType,omitempty"`
-	}
-	setUpUserConversationResp  {}
-	GetChatLogReadRecordsReq {
-		MsgId string `json:"msgId"`
-	}
-	GetChatLogReadRecordsResp {
-		Reads   []string `json:"reads"`
-		UnReads []string `json:"unReads"`
-	}
-)
+
 
 @server (
 	prefix: v1/im
@@ -51,6 +20,7 @@ service im {
 	@handler getChatLog
 	get /chatlog (ChatLogReq) returns (ChatLogResp)
 
+	@doc "获取已读未读"
 	@handler getChatLogReadRecords
 	get /chatlog/readRecords (GetChatLogReadRecordsReq) returns (GetChatLogReadRecordsResp)
 

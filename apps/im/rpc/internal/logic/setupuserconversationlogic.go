@@ -35,7 +35,7 @@ func (l *SetUpUserConversationLogic) SetUpUserConversation(in *im.SetUpUserConve
 	switch constants.ChatType(in.ChatType) {
 	case constants.GroupChatType:
 	// todo: 群聊
-	case constants.SingleChatTpye:
+	case constants.SingleChatType:
 		// 生成会话id
 		conversationId := wuid.CombineId(in.SendId, in.RecvId)
 		// 验证是否建立过会话
@@ -45,7 +45,7 @@ func (l *SetUpUserConversationLogic) SetUpUserConversation(in *im.SetUpUserConve
 			if errors.Is(err, immodels.ErrNotFound) {
 				err = l.svcCtx.ConversationModel.Insert(l.ctx, &immodels.Conversation{
 					ConversationId: conversationId,
-					ChatType:       constants.SingleChatTpye,
+					ChatType:       constants.SingleChatType,
 				})
 				if err != nil {
 					return nil, errors.Wrapf(xerr.NewDBErr(), "insert conversation err %v", err)
@@ -56,12 +56,12 @@ func (l *SetUpUserConversationLogic) SetUpUserConversation(in *im.SetUpUserConve
 
 		}
 
-		err = l.setupUserConversation(conversationId, in.SendId, constants.SingleChatTpye, true)
+		err = l.setupUserConversation(conversationId, in.SendId, constants.SingleChatType, true)
 		if err != nil {
 			return &res, err
 		}
 		// 接收者是被动与目标用户建立连接，因此理论上是不需要在会话列表里展示，而是在用户发起聊天后展示
-		err = l.setupUserConversation(conversationId, in.RecvId, constants.SingleChatTpye, false)
+		err = l.setupUserConversation(conversationId, in.RecvId, constants.SingleChatType, false)
 		if err != nil {
 			return &res, err
 		}

@@ -20,8 +20,10 @@ type chatLogModel interface {
 	Insert(ctx context.Context, data *ChatLog) error
 	FindOne(ctx context.Context, id string) (*ChatLog, error)
 	Update(ctx context.Context, data *ChatLog) (*mongo.UpdateResult, error)
+	UpdateMakeRead(ctx context.Context, id primitive.ObjectID, readRecords []byte) error
 	Delete(ctx context.Context, id string) (int64, error)
 	ListBySendTime(ctx context.Context, conversationId string, startSendTime, endSendTime, count int64) ([]*ChatLog, error)
+	ListByMsgIds(ctx context.Context, msgIds []string) ([]*ChatLog, error)
 }
 
 type defaultChatLogModel struct {
@@ -69,6 +71,13 @@ func (m *defaultChatLogModel) Update(ctx context.Context, data *ChatLog) (*mongo
 	return res, err
 }
 
+func (m *defaultChatLogModel) UpdateMakeRead(ctx context.Context, id primitive.ObjectID, readRecords []byte) error {
+	_, err := m.conn.UpdateOne(ctx, bson.M{"_id": id}, bson.M{"$set": bson.M{
+		"readRecords": readRecords,
+	}})
+	return err
+}
+
 func (m *defaultChatLogModel) Delete(ctx context.Context, id string) (int64, error) {
 	oid, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
@@ -113,6 +122,31 @@ func (m *defaultChatLogModel) ListBySendTime(ctx context.Context, conversationId
 		return data, nil
 	case mon.ErrNotFound:
 		return nil, ErrNotFound
+	default:
+		return nil, err
+	}
+}
+
+func (m *defaultChatLogModel) ListByMsgIds(ctx context.Context, msgIds []string) ([]*ChatLog, error)  {
+	var data []*ChatLog
+
+	ids := make([]primitive.ObjectID, 0, len(msgIds))
+
+	for _, id := range msgIds {
+		oid, _ := primitive.ObjectIDFromHex(id)
+		ids = append(ids, oid)
+	}
+
+	filter := bson.M{
+		"_id": bson.M{
+			"$in": ids,
+		},
+	}
+
+	err := m.conn.Find(ctx, &data, filter)
+	switch err {
+	case nil:
+		return data, nil
 	default:
 		return nil, err
 	}

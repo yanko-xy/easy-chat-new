@@ -2,6 +2,8 @@ package group
 
 import (
 	"context"
+	"github.com/yanko-xy/easy-chat/apps/social/rpc/social"
+	"github.com/yanko-xy/easy-chat/pkg/ctxdata"
 
 	"github.com/yanko-xy/easy-chat/apps/social/api/internal/svc"
 	"github.com/yanko-xy/easy-chat/apps/social/api/internal/types"
@@ -24,8 +26,13 @@ func NewGroupPutInHandleLogic(ctx context.Context, svcCtx *svc.ServiceContext) *
 	}
 }
 
-func (l *GroupPutInHandleLogic) GroupPutInHandle(req *types.GroupPutInHandleRep) (resp *types.GroupPutInHandleResp, err error) {
-	// todo: add your logic here and delete this line
+func (l *GroupPutInHandleLogic) GroupPutInHandle(req *types.GroupPutInHandleReq) (resp *types.GroupPutInHandleResp, err error) {
+	_, err = l.svcCtx.Social.GroupPutInHandle(l.ctx, &social.GroupPutInHandleReq{
+		GroupReqId:   req.GroupReqId,
+		GroupId:      req.GroupId,
+		HandleUid:    ctxdata.GetUId(l.ctx),
+		HandleResult: req.HandleResult,
+	})
 
 	return
 }

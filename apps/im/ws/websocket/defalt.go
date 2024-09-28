@@ -17,4 +17,6 @@ var (
 	defaultAckTimeout = time.Second * 30
 
 	defaultMaxConnectionIdle = time.Duration(math.MaxInt64)
+
+	defaultServerHandlerConcurrency = 10
 )

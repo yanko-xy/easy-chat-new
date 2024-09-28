@@ -97,20 +97,24 @@ message GroupCreateReq {
   string icon = 2;
   int32 status = 3;
   string creatorUid = 4;
+  bool isVerify = 5;
 }
 
-message GroupCreateResp {}
+message GroupCreateResp {
+  string groupId = 1;
+}
 
 message GroupPutInReq {
   string groupId = 1;
   string reqUid = 2;
   string reqMsg = 3;
-  int64 reqTime = 4;
   int32 joinSource = 5;
   string inviterUid = 7;
 }
 
-message GroupPutInResp {}
+message GroupPutInResp {
+  string groupId = 1;
+}
 
 message GroupPutInListReq {
   string groupId = 1;
@@ -130,10 +134,12 @@ message GroupPutInHandleReq {
   string userAvatarUrl = 6;
 }
 
-message GroupPutInHandleResp {}
+message GroupPutInHandleResp {
+  string groupId = 1;
+}
 
 message GroupListReq {
-  string groupId = 1;
+  string userId = 1;
 }
 
 message GroupListResp {

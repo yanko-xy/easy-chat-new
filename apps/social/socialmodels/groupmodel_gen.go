@@ -27,8 +27,10 @@ var (
 
 type (
 	groupModel interface {
-		Insert(ctx context.Context, data *Group) (sql.Result, error)
+		Trans(ctx context.Context, fn func(context.Context,sqlx.Session) error) error
+		Insert(ctx context.Context, session sqlx.Session, data *Group) (sql.Result, error)
 		FindOne(ctx context.Context, id string) (*Group, error)
+		ListByGroupIds(ctx context.Context, ids []string) ([]*Group, error)
 		Update(ctx context.Context, data *Group) error
 		Delete(ctx context.Context, id string) error
 	}
@@ -61,6 +63,12 @@ func newGroupModel(conn sqlx.SqlConn, c cache.CacheConf, opts ...cache.Option) *
 	}
 }
 
+func (m *defaultGroupModel) Trans(ctx context.Context, fn func(context.Context,sqlx.Session) error) error  {
+	return m.TransactCtx(ctx, func(ctx context.Context, session sqlx.Session) error {
+		return fn(ctx, session)
+	})
+}
+
 func (m *defaultGroupModel) Delete(ctx context.Context, id string) error {
 	groupIdKey := fmt.Sprintf("%s%v", cacheGroupIdPrefix, id)
 	_, err := m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
@@ -87,14 +95,32 @@ func (m *defaultGroupModel) FindOne(ctx context.Context, id string) (*Group, err
 	}
 }
 
-func (m *defaultGroupModel) Insert(ctx context.Context, data *Group) (sql.Result, error) {
+func (m *defaultGroupModel) ListByGroupIds(ctx context.Context, ids []string) ([]*Group, error)  {
+	query := fmt.Sprintf("select %s from %s where `id` in ('%s') ", groupRows, m.table,  strings.Join(ids, "','"))
+
+	var resp []*Group
+	err := m.QueryRowsNoCacheCtx(ctx, &resp, query)
+
+	switch err {
+	case nil:
+		return resp, nil
+	default:
+		return nil, err
+	}
+}
+
+func (m *defaultGroupModel) Insert(ctx context.Context, session sqlx.Session, data *Group) (sql.Result, error) {
 	groupIdKey := fmt.Sprintf("%s%v", cacheGroupIdPrefix, data.Id)
 	ret, err := m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
 		query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", m.table, groupRowsExpectAutoSet)
+		if session != nil {
+			return session.ExecCtx(ctx, query, data.Id, data.Name, data.Icon, data.Status, data.CreatorUid, data.GroupType, data.IsVerify, data.Notification, data.NotificationUid, data.DeletedAt)
+		}
 		return conn.ExecCtx(ctx, query, data.Id, data.Name, data.Icon, data.Status, data.CreatorUid, data.GroupType, data.IsVerify, data.Notification, data.NotificationUid, data.DeletedAt)
 	}, groupIdKey)
 	return ret, err
 }
+
 
 func (m *defaultGroupModel) Update(ctx context.Context, data *Group) error {
 	groupIdKey := fmt.Sprintf("%s%v", cacheGroupIdPrefix, data.Id)

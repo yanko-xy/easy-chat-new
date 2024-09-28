@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"github.com/gorilla/websocket"
 	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/zeromicro/go-zero/core/threading"
 	"net/http"
 	"sync"
 	"time"
@@ -39,7 +40,8 @@ func (t AckType) ToString() string {
 
 type Server struct {
 	sync.RWMutex
-	opt           *serverOption
+	opt *serverOption
+	*threading.TaskRunner
 	routes        map[string]HandlerFunc
 	authorization Authorization
 	pattern       string
@@ -55,6 +57,7 @@ func NewServer(addr string, opts ...ServerOptions) *Server {
 
 	return &Server{
 		opt:           opt,
+		TaskRunner:    threading.NewTaskRunner(opt.concurrency),
 		routes:        make(map[string]HandlerFunc),
 		userToConn:    make(map[string]*Conn),
 		connToUser:    make(map[*Conn]string),

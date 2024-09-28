@@ -15,5 +15,12 @@ type ChatType int
 
 const (
 	GroupChatType ChatType = iota + 1
-	SingleChatTpye
+	SingleChatType
+)
+
+type ContentType int
+
+const (
+	ContentChatMsg ContentType = iota
+	ContentMakeRead
 )

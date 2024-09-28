@@ -13,16 +13,14 @@ import (
 	"github.com/yanko-xy/easy-chat/apps/task/mq/mq"
 	"github.com/yanko-xy/easy-chat/pkg/constants"
 	"github.com/yanko-xy/easy-chat/pkg/wuid"
-	"time"
 )
 
-func Chat(svc *svc.ServiceContext) websocket.HandlerFunc {
+func MarkRead(svc *svc.ServiceContext) websocket.HandlerFunc {
 	return func(srv *websocket.Server, conn *websocket.Conn, msg *websocket.Message) {
-
-		var data ws.Chat
+		// 已读未读处理
+		var data ws.MaskRead
 		if err := mapstructure.Decode(msg.Data, &data); err != nil {
 			srv.Send(websocket.NewErrMessage(err), conn)
-			srv.Errorf("websocket conn mapstructure decode err %v, msg %v", err, msg.Data)
 			return
 		}
 
@@ -35,18 +33,16 @@ func Chat(svc *svc.ServiceContext) websocket.HandlerFunc {
 			}
 		}
 
-		err := svc.MsgChatTransferClient.Push(&mq.MsgChatTransfer{
-			ConversationId: data.ConversationId,
+		err := svc.MsgReadTransferClient.Push(&mq.MsgMarkRead{
 			ChatType:       data.ChatType,
+			ConversationId: data.ConversationId,
 			SendId:         conn.Uid,
 			RecvId:         data.RecvId,
-			SendTime:       time.Now().UnixNano(),
-			MType:          data.Msg.MType,
-			Content:        data.Msg.Content,
+			MsgIds:         data.MsgIds,
 		})
+
 		if err != nil {
 			srv.Send(websocket.NewErrMessage(err), conn)
-			srv.Errorf("mq push  err %v", err)
 			return
 		}
 	}

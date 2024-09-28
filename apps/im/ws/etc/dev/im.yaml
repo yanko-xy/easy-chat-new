@@ -12,3 +12,8 @@ MsgChatTransfer:
   Topic: msgChatTransfer
   Addrs:
     - 120.26.209.19:9092
+
+MsgMarkRead:
+  Topic: msgReadTransfer
+  Addrs:
+    - 120.26.209.19:9092

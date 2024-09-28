@@ -13,19 +13,24 @@ import (
 	"github.com/yanko-xy/easy-chat/apps/im/ws/websocket"
 )
 
-func RegisterHandlers(srv *websocket.Server, svc *svc.ServiceContext) {
+func RegisterHandlers(srv *websocket.Server, svcCtx *svc.ServiceContext) {
 	srv.AddRoutes([]*websocket.Route{
 		{
 			Method:  "user.online",
-			Handler: user.Online(svc),
+			Handler: user.Online(svcCtx),
 		},
 		{
 			Method:  "conversation.chat",
-			Handler: conversation.Chat(svc),
+			Handler: conversation.Chat(svcCtx),
 		},
 		{
+			Method:  "conversation.markRead",
+			Handler: conversation.MarkRead(svcCtx),
+		},
+
+		{
 			Method:  "push",
-			Handler: push.Push(svc),
+			Handler: push.Push(svcCtx),
 		},
 	})
 }

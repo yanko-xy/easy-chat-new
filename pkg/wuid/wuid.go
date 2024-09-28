@@ -26,7 +26,7 @@ func Init(dsn string) {
 	_ = w.LoadH28FromMysql(newDB, "wuid")
 }
 
-func GetUid(dsn string) string {
+func GenUid(dsn string) string {
 	if w == nil {
 		Init(dsn)
 	}
@@ -46,6 +46,15 @@ func CombineId(aid, bid string) string {
 	return fmt.Sprintf("%s_%s", ids[0], ids[1])
 }
 
+func IsCombinedById(combineId, id string) bool {
+	ids := DeCombineId(combineId)
+	if ids[0] != id && ids[1] != id {
+		return false
+	}
+	return true
+}
+
 func DeCombineId(id string) []string {
+
 	return strings.Split(id, "_")
 }

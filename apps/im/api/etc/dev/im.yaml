@@ -8,5 +8,17 @@ ImRpc:
       - 120.26.209.19:3379
     Key: im.rpc
 
+SocialRpc:
+  Etcd:
+    Hosts:
+      - 120.26.209.19:3379
+    Key: social.rpc
+
+UserRpc:
+  Etcd:
+    Hosts:
+      - 120.26.209.19:3379
+    Key: user.rpc
+
 JwtAuth:
   AccessSecret: github.com

@@ -34,3 +34,36 @@ type (
 		Msg            Msg    `json:"msg,optional,omitempty"`
 	}
 )
+
+type (
+	ChatLogReq {
+		MsgId          string `form:"msgId,optional"`
+		ConversationId string `form:"conversationId"`
+		StartSendTime  int64  `form:"startSendTime,omitempty,optional"`
+		EndSendTime    int64  `form:"endSendTime,omitempty,optional"`
+		Count          int64  `form:"count,omitempty,optional"`
+	}
+	ChatLogResp {
+		List []*ChatLog `json:"list"`
+	}
+	GetConversationsReq  {}
+	GetConversationsResp {
+		ConversationList map[string]*Conversation `form:"conversationList"`
+	}
+	PutConversationsReq {
+		ConversationList map[string]*Conversation `json:"conversationList"`
+	}
+	PutConversationsResp  {}
+	SetUpUserConversationReq {
+		RecvId   string `json:"recvId,omitempty"`
+		ChatType int32  `json:"chatType,omitempty"`
+	}
+	setUpUserConversationResp  {}
+	GetChatLogReadRecordsReq {
+		MsgId string `form:"msgId"`
+	}
+	GetChatLogReadRecordsResp {
+		Reads   []string `json:"reads"`
+		UnReads []string `json:"unReads"`
+	}
+)

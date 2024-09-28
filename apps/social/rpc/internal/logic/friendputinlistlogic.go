@@ -27,7 +27,7 @@ func NewFriendPutInListLogic(ctx context.Context, svcCtx *svc.ServiceContext) *F
 }
 
 func (l *FriendPutInListLogic) FriendPutInList(in *social.FriendPutInListReq) (*social.FriendPutInListResp, error) {
-	reqList, err := l.svcCtx.FriendRequestModel.ListByUserId(l.ctx, in.UserId)
+	reqList, err := l.svcCtx.FriendRequestModel.ListByNoHandle(l.ctx, in.UserId)
 	if err != nil {
 		return nil, errors.Wrapf(xerr.NewDBErr(), "list friendputIn by user id err %v, req %v",
 			err, in.UserId)

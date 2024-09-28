@@ -29,34 +29,34 @@ type (
         Name            string `json:"name,omitempty"`
         Icon            string `json:"icon,omitempty"`
         Status          int64  `json:"status,omitempty"`
-        GroupType       int64  `json:"group_type,omitempty"`
-        IsVerify        bool   `json:"is_verify,omitempty"`
+        GroupType       int64  `json:"groupType,omitempty"`
+        IsVerify        bool   `json:"isVerify"`
         Notification    string `json:"notification,omitempty"`
-        NotificationUid string `json:"notification_uid,omitempty"`
+        NotificationUid string `json:"notificationUid,omitempty"`
     }
 
     GroupMember {
         Id            int64  `json:"id,omitempty"`
-        GroupId       string `json:"group_id,omitempty"`
-        UserId        string `json:"user_id,omitempty"`
+        GroupId       string `json:"groupId,omitempty"`
+        UserId        string `json:"userId,omitempty"`
         Nickname      string `json:"nickname,omitempty"`
-        UserAvatarUrl string `json:"user_avatar_url,omitempty"`
-        RoleLevel     int    `json:"role_level,omitempty"`
-        InviterUid    string `json:"inviter_uid,omitempty"`
-        OperatorUid   string `json:"operator_uid,omitempty"`
+        UserAvatarUrl string `json:"userAvatar_url,omitempty"`
+        RoleLevel     int    `json:"roleLevel,omitempty"`
+        InviterUid    string `json:"inviterUid,omitempty"`
+        OperatorUid   string `json:"operatorUid,omitempty"`
     }
 
     GroupRequest {
         Id            int64  `json:"id,omitempty"`
-        UserId        string `json:"user_id,omitempty"`
-        GroupId       string `json:"group_id,omitempty"`
-        ReqMsg        string `json:"req_msg,omitempty"`
-        ReqTime       int64  `json:"req_time,omitempty"`
-        JoinSource    int64  `json:"join_source,omitempty"`
-        InviterUserId string `json:"inviter_user_id,omitempty"`
-        HandleUserId  string `json:"handle_user_id,omitempty"`
-        HandleTime    int64  `json:"handle_time,omitempty"`
-        HandleResult  int64  `json:"handle_result,omitempty"`
+        UserId        string `json:"userId,omitempty"`
+        GroupId       string `json:"groupId,omitempty"`
+        ReqMsg        string `json:"reqMsg,omitempty"`
+        ReqTime       int64  `json:"reqTime,omitempty"`
+        JoinSource    int64  `json:"joinSource,omitempty"`
+        InviterUserId string `json:"inviterUser_id,omitempty"`
+        HandleUserId  string `json:"handleUser_id,omitempty"`
+        HandleTime    int64  `json:"handleTime,omitempty"`
+        HandleResult  int64  `json:"handleResult,omitempty"`
     }
 )
 
@@ -95,31 +95,33 @@ type (
     GroupCreateReq {
         Name string `json:"name,omitempty"`
         Icon string `json:"icon,omitempty"`
+        IsVerify bool   `json:"isVerify,optional,default=false"`
     }
     GroupCreateResp {}
 )
 
 type (
-    GroupPutInRep {
-        GroupId    string `json:"group_id,omitempty"`
-        ReqMsg     string `json:"req_msg,omitempty"`
-        JoinSource int64  `json:"join_source,omitempty"`
+    GroupPutInReq {
+        GroupId    string `json:"groupId,omitempty"`
+        ReqMsg     string `json:"reqMsg,omitempty"`
+        InviterUid string `json:"inviterUid,omitempty,optional"`
+        JoinSource int64  `json:"joinSource,omitempty"`
     }
     GroupPutInResp {}
 )
 
 type (
-    GroupPutInHandleRep {
-        GroupReqId   int32  `json:"group_req_id,omitempty"`
-        GroupId      string `json:"group_id,omitempty"`
-        HandleResult int32  `json:"handle_result,omitempty"` // 处理结果
+    GroupPutInHandleReq {
+        GroupReqId   int32  `json:"groupReqId,omitempty"`
+        GroupId      string `json:"groupId,omitempty"`
+        HandleResult int32  `json:"handleResult,omitempty"` // 处理结果
     }
     GroupPutInHandleResp {}
 )
 
 type (
-    GroupPutInListRep {
-        GroupId string `json:"group_id,omitempty"`
+    GroupPutInListReq {
+        GroupId string `form:"groupId,omitempty"`
     }
     GroupPutInListResp {
         List []*GroupRequest `json:"list,omitempty"`
@@ -127,15 +129,15 @@ type (
 )
 
 type (
-    GroupListRep  {}
+    GroupListReq  {}
     GroupListResp {
-        List []*Group `json:"list,omitempty"`
+        List []*Group `form:"list,omitempty"`
     }
 )
 
 type (
     GroupUserListReq {
-        GroupId string `json:"group_id,omitempty"`
+        GroupId string `form:"groupId,omitempty"`
     }
     GroupUserListResp {
         List []*GroupMember `json:"list,omitempty"`

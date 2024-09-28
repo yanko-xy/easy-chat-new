@@ -10,6 +10,21 @@ MsgChatTransfer:
   Offset: first
   Consumers: 1
 
+MsgReadTransfer:
+  Name: msgReadTrans
+  Brokers:
+    - 120.26.209.19:9092
+  Group: kafka
+  Topic: msgReadTransfer
+  Offset: first
+  Consumers: 1
+
+SocialRpc:
+  Etcd:
+    Hosts:
+      - 120.26.209.19:3379
+    Key: social.rpc
+
 Redisx:
   Host: 120.26.209.19:16379
   Type: node
@@ -21,3 +36,8 @@ Mongo:
 
 Ws:
   Host: 127.0.0.1:10090
+
+MsgReadHandler:
+  GroupMsgReadHandler: 1
+  GroupMsgReadRecordDelayTime: 2
+  GroupMsgReadRecordDelayCount: 4

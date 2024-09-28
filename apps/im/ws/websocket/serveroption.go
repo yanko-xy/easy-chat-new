@@ -17,6 +17,7 @@ type serverOption struct {
 
 	pattern           string
 	maxConnectionIdle time.Duration
+	concurrency       int
 }
 
 func newServerOptions(opts ...ServerOptions) *serverOption {
@@ -26,6 +27,7 @@ func newServerOptions(opts ...ServerOptions) *serverOption {
 		ackTimeout:        defaultAckTimeout,
 		pattern:           defaultPattrn,
 		maxConnectionIdle: defaultMaxConnectionIdle,
+		concurrency:       defaultServerHandlerConcurrency,
 	}
 
 	for _, opt := range opts {
@@ -63,6 +65,14 @@ func WithServerMaxConnectionIdle(maxConnectionIdle time.Duration) ServerOptions 
 	return func(opt *serverOption) {
 		if maxConnectionIdle > 0 {
 			opt.maxConnectionIdle = maxConnectionIdle
+		}
+	}
+}
+
+func WithServerWithConcurrency(concurrency int) ServerOptions {
+	return func(opt *serverOption) {
+		if concurrency > 0 {
+			opt.concurrency = concurrency
 		}
 	}
 }

@@ -9,6 +9,7 @@ import (
 	"github.com/zeromicro/go-queue/kq"
 	"github.com/zeromicro/go-zero/core/service"
 	"github.com/zeromicro/go-zero/core/stores/redis"
+	"github.com/zeromicro/go-zero/zrpc"
 )
 
 type Config struct {
@@ -17,6 +18,9 @@ type Config struct {
 	ListenOn string
 
 	MsgChatTransfer kq.KqConf
+	MsgReadTransfer kq.KqConf
+
+	SocialRpc zrpc.RpcClientConf
 
 	Redisx redis.RedisConf
 
@@ -27,5 +31,11 @@ type Config struct {
 
 	Ws struct {
 		Host string
+	}
+
+	MsgReadHandler struct {
+		GroupMsgReadHandler          int
+		GroupMsgReadRecordDelayTime  int64
+		GroupMsgReadRecordDelayCount int
 	}
 }
