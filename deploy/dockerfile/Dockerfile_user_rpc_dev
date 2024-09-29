@@ -42,5 +42,5 @@ WORKDIR /$SERVER_NAME
 #当使用exec表单并直接执行shell时（例如在shell表单中），是由shell进行环境变量扩展，而不是docker。（来自Dockerfile参考）
 #
 
-ENTRYPOINT ["/bin/start.sh"]
+ENTRYPOINT ["$SERVER_NAME/bin/start.sh"]
 
