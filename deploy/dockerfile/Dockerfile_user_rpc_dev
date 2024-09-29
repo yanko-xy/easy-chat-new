@@ -18,8 +18,6 @@ ENV RUN_CONF /${SERVER_NAME}/conf/${SERVER_NAME}.yaml
 # 命令 左边是宿主机的目录，右边是容器目录
 RUN mkdir /$SERVER_NAME && mkdir /$SERVER_NAME/bin && mkdir /$SERVER_NAME/conf
 
-# 复制启动脚本
-COPY ./deploy/script/start.sh /$SERVER_NAME/bin/
 
 # 复制编译后的二进制文件
 COPY ./bin/$SERVER_NAME-$SERVER_TYPE /$SERVER_NAME/bin/
@@ -42,5 +40,5 @@ WORKDIR /$SERVER_NAME
 #当使用exec表单并直接执行shell时（例如在shell表单中），是由shell进行环境变量扩展，而不是docker。（来自Dockerfile参考）
 #
 
-ENTRYPOINT [ "sh", "-c", "echo $SERVER_NAME/bin/start.sh" ]
+ENTRYPOINT $RUN_BIN -f $RUN_CONF
 

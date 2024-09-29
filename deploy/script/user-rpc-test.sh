@@ -23,4 +23,4 @@ docker pull ${reso_addr}:${tag}
 
 # 如果需要指定配置文件的
 # docker run -p 10001:8080 --network imooc_easy-chat -v /easy-chat/config/user-rpc:/user/conf/ --name=${container_name} -d ${reso_addr}:${tag}
-docker run -p ${port}:${port} -e POD_IP=${pod_ip} --name=${container_name} -d ${reso_addr}:${tag}
+docker run -p ${port}:${port} -e POD_IP=$(hostname -I | awk '{print $1}') --name=${container_name} -d ${reso_addr}:${tag}
