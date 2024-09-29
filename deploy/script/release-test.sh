@@ -21,4 +21,4 @@ done
 
 docker ps
 
-docker exec -it etcd etcdctl get --prefix ""
+#docker exec -it etcd etcdctl get --prefix ""

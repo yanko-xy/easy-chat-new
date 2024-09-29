@@ -7,37 +7,63 @@ import (
 	"github.com/yanko-xy/easy-chat/apps/im/rpc/internal/config"
 	"github.com/yanko-xy/easy-chat/apps/im/rpc/internal/server"
 	"github.com/yanko-xy/easy-chat/apps/im/rpc/internal/svc"
+	"github.com/yanko-xy/easy-chat/pkg/configserver"
 	"github.com/yanko-xy/easy-chat/pkg/interceptor/rpcserver"
-	"github.com/zeromicro/go-zero/core/logx"
-	"os"
-
-	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"
 	"github.com/zeromicro/go-zero/zrpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	"sync"
 )
 
 var configFile = flag.String("f", "etc/dev/im.yaml", "the config file")
-var logConfigFile = flag.String("log", "../../etc/log.yaml", "log config file")
+
+var grpcServer *grpc.Server
+var wg sync.WaitGroup
 
 func main() {
 	flag.Parse()
 
 	var c config.Config
-	conf.MustLoad(*configFile, &c)
+	err := configserver.NewConfigserver(*configFile, configserver.NewSail(&configserver.Config{
+		ETCDEndpoints:  "120.26.209.19:3379",
+		ProjectKey:     "98c6f2c2287f4c73cea3d40ae7ec3ff2",
+		Namespace:      "im",
+		Configs:        "im-rpc.yaml",
+		ConfigFilePath: "./etc/conf",
+		LogLevel:       "DEBUG",
+	})).MustLoad(&c, func(bytes []byte) error {
+		var c config.Config
+		configserver.LoadFromJsonBytes(bytes, &c)
 
-	// 设置日志配置
-	var lc logx.LogConf
-	conf.MustLoad(*logConfigFile, &lc)
-	logx.MustSetup(lc)
-	logx.AddWriter(logx.NewWriter(os.Stdout))
+		grpcServer.GracefulStop()
+		wg.Add(1)
+		go func(c config.Config) {
+			defer wg.Done()
+			Run(c)
+		}(c)
+		return nil
+	})
+	if err != nil {
+		panic(err)
+	}
 
+	wg.Add(1)
+	go func(c config.Config) {
+		defer wg.Done()
+		Run(c)
+	}(c)
+
+	wg.Wait()
+}
+
+func Run(c config.Config) {
 	ctx := svc.NewServiceContext(c)
 
-	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
-		im.RegisterImServer(grpcServer, server.NewImServer(ctx))
+	s := zrpc.MustNewServer(c.RpcServerConf, func(srv *grpc.Server) {
+		grpcServer = srv
 
+		im.RegisterImServer(grpcServer, server.NewImServer(ctx))
 		if c.Mode == service.DevMode || c.Mode == service.TestMode {
 			reflection.Register(grpcServer)
 		}

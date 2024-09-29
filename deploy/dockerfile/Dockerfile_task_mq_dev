@@ -13,7 +13,6 @@ ARG SERVER_TYPE=mq
 
 ENV RUN_BIN bin/${SERVER_NAME}-${SERVER_TYPE}
 ENV RUN_CONF /${SERVER_NAME}/conf/${SERVER_NAME}.yaml
-ENV RUN_LOG_CONF /log/conf/log.yaml
 
 # 这个关键词的意思是复制的意思，可以将宿主机中的内容复制到容器中
 # 命令 左边是宿主机的目录，右边是容器目录
@@ -24,7 +23,6 @@ COPY ./bin/$SERVER_NAME-$SERVER_TYPE /$SERVER_NAME/bin/
 
 # 复制配置文件
 COPY ./apps/$SERVER_NAME/$SERVER_TYPE/etc/dev/$SERVER_NAME.yaml /$SERVER_NAME/conf/
-COPY ./apps/etc/log.yaml /log/conf/
 
 # 为二进制提供执行权限
 RUN chmod +x /$SERVER_NAME/bin/$SERVER_NAME-$SERVER_TYPE
@@ -40,5 +38,5 @@ WORKDIR /$SERVER_NAME
 #当使用exec表单并直接执行shell时（例如在shell表单中），是由shell进行环境变量扩展，而不是docker。（来自Dockerfile参考）
 #
 
-ENTRYPOINT $RUN_BIN -f $RUN_CONF -log $RUN_LOG_CONF
+ENTRYPOINT $RUN_BIN -f $RUN_CONF
 

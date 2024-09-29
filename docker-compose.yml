@@ -10,26 +10,27 @@ services:
         environment:
             - ETCD_ENABLE_V2=true
             - ALLOW_NONE_AUTHENTICATION=yes
-            - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:3379
+            - ETCD_ADVERTISE_CLIENT_URLS=http://120.26.209.19:3379
             - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
             - ETCD_NAME=etcd
         volumes:
             - ./components/etcd/data:/bitnami/etcd/data
             - ./components/etcd/logs:/bitnami/etcd/logs
+        restart: always
         networks:
             easy-chat:
 
     redis:
         image: redis:alpine3.18
         ports:
-            - 16379:6379
+            - "16379:6379"
         container_name: redis
         volumes:
             - ./components/redis/data:/data
             - ./components/redis/config/redis.conf:/usr/local/redis/config/redis.conf
         environment:
             TZ: Asia/Shanghai
-        restart: always
+
         networks:
             easy-chat:
         command: redis-server --requirepass easy-chat --appendonly yes
@@ -37,7 +38,7 @@ services:
     mysql:
         image: mysql:5.7
         ports:
-            - 13306:3306
+            - "13306:3306"
         container_name: mysql
         volumes:
             - ./components/mysql/data:/var/lib/mysql
@@ -47,6 +48,76 @@ services:
         restart: always
         networks:
             easy-chat:
+        healthcheck:
+            test: [ "CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p$$MYSQL_ROOT_PASSWORD' ]
+            timeout: 2s
+            retries: 2
+
+    mongo:
+        image: mongo:4.0
+        container_name: mongo
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: easy-chat
+        ports:
+            - "47017:27017"
+        volumes:
+            - ./components/mongo/data:/data/db
+            - /etc/localtime:/etc/localtime
+        restart: always
+        networks:
+            easy-chat:
+
+    zookeeper:
+        image: wurstmeister/zookeeper
+        ports:
+            - "2181:2181"
+        container_name: zookeeper
+        volumes:
+            - /etc/localtime:/etc/localtime
+        environment:
+            TZ: Asia/Shanghai
+        restart: always
+        networks:
+            easy-chat:
+
+    kafka:
+        image: wurstmeister/kafka
+        container_name: kafka
+        restart: always
+        ports:
+            - "9092:9092"
+        environment:
+            TZ: Asia/Shanghai
+            KAFKA_BROKER_ID: 0
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            KAFKA_CREATE_TOPICS: "ws2ms_chat:8:1,ms2ps_chat:8:1,msg_to_mongo:8:1"
+            KAFKA_ADVERTISED_LISTENERS: INSIDE://192.168.117.24:9092
+            KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT"
+            KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+            KAFKA_LISTENERS: INSIDE://:9092
+            KAFKA_HEAP_OPTS: "-Xmx512M -Xms256M"
+        depends_on:
+            - zookeeper
+        networks:
+            easy-chat:
+
+    sail:
+        image: ccr.ccs.tencentyun.com/hyy-yu/sail:latest
+        container_name: sail
+        ports:
+            - "8108:8108"
+        volumes:
+            - "./components/sail/compose-cfg.toml:/app/cfg.toml"
+        restart: always
+        platform: linux/arm64
+        networks:
+            easy-chat:
+        depends_on:
+            mysql:
+                condition: service_healthy
+            etcd:
+                condition: service_started
 
 networks:
     easy-chat:
