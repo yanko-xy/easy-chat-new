@@ -12,6 +12,7 @@ type DailOptins func(option *dailOption)
 type dailOption struct {
 	pattern string
 	header  http.Header
+	Discover
 }
 
 func newDailOption(opts ...DailOptins) *dailOption {
@@ -36,5 +37,11 @@ func WithClientPattern(pattern string) DailOptins {
 func WithClientHeader(header http.Header) DailOptins {
 	return func(opt *dailOption) {
 		opt.header = header
+	}
+}
+
+func WithClientDiscover(discover Discover) DailOptins {
+	return func(opt *dailOption) {
+		opt.Discover = discover
 	}
 }

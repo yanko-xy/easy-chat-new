@@ -92,7 +92,7 @@ services:
             KAFKA_BROKER_ID: 0
             KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
             KAFKA_CREATE_TOPICS: "ws2ms_chat:8:1,ms2ps_chat:8:1,msg_to_mongo:8:1"
-            KAFKA_ADVERTISED_LISTENERS: INSIDE://192.168.117.24:9092
+            KAFKA_ADVERTISED_LISTENERS: INSIDE://120.26.209.19:9092
             KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT"
             KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
             KAFKA_LISTENERS: INSIDE://:9092
@@ -101,6 +101,38 @@ services:
             - zookeeper
         networks:
             easy-chat:
+
+    apisix-dashboard:
+        image: apache/apisix-dashboard:3.0.1-alpine
+        container_name: apisix-dashboard
+        restart: always
+        depends_on:
+          - etcd
+        volumes:
+          - ./components/apisix-dashboard/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml
+        ports:
+          - "9000:9000"
+        networks:
+          easy-chat:
+
+    apisix:
+        image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian}
+        container_name: apisix
+        restart: always
+        depends_on:
+          - etcd
+          - apisix-dashboard
+        volumes:
+          - ./components/apisix/config.yaml:/usr/local/apisix/conf/config.yaml
+          - ./components/apisix/logs:/usr/local/apisix/logs
+        ports:
+          - "9180:9180/tcp"
+          - "9080:9080/tcp"
+          - "9091:9091/tcp"
+          - "9443:9443/tcp"
+          - "9093:9092/tcp"
+        networks:
+          easy-chat:
 
     sail:
         image: ccr.ccs.tencentyun.com/hyy-yu/sail:latest

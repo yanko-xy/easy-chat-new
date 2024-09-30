@@ -13,7 +13,11 @@ import (
 	"github.com/yanko-xy/easy-chat/apps/im/ws/internal/svc"
 	"github.com/yanko-xy/easy-chat/apps/im/ws/websocket"
 	"github.com/yanko-xy/easy-chat/pkg/configserver"
+	"github.com/yanko-xy/easy-chat/pkg/constants"
+	"github.com/yanko-xy/easy-chat/pkg/ctxdata"
+	"net/http"
 	"sync"
+	"time"
 )
 
 var configFile = flag.String("f", "etc/dev/im.yaml", "the config file")
@@ -60,12 +64,20 @@ func Run(c config.Config) {
 	}
 
 	ctx := svc.NewServiceContext(c)
-	srv := websocket.NewServer(c.ListenOn,
+	// 设置服务认证的token
+	token, err := ctxdata.GetJwtToken(c.JwtAuth.AccessSecret, time.Now().Unix(), 3153600000, fmt.Sprintf("ws:%s", time.Now().Unix()))
+	if err != nil {
+		panic(err)
+	}
+
+	opts := []websocket.ServerOptions{
 		websocket.WithServerAuthorization(handler.NewJwtAuth(ctx)),
-		//websocket.WithServerAck(websocket.RigorAck),
-		// 心跳检测
-		//websocket.WithServerMaxConnectionIdle(10*time.Second),
-	)
+		websocket.WithServerDiscover(websocket.NewRedisDiscover(http.Header{
+			"Authorization": []string{token},
+		}, constants.REDIS_DISCOVER_SRV, c.Redisx)),
+	}
+
+	srv := websocket.NewServer(c.ListenOn, opts...)
 	defer srv.Stop()
 
 	handler.RegisterHandlers(srv, ctx)

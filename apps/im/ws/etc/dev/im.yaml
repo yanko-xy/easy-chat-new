@@ -17,3 +17,8 @@ MsgMarkRead:
   Topic: msgReadTransfer
   Addrs:
     - 120.26.209.19:9092
+
+Redisx:
+  host: 120.26.209.19:16379
+  Type: node
+  pass: easy-chat

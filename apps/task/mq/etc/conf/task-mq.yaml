@@ -1,0 +1,36 @@
+listenon: 0.0.0.0:10091
+mongo:
+    db: easy-chat
+    url: mongodb://root:easy-chat@120.26.209.19:47017
+msgchattransfer:
+    brokers:
+        - 120.26.209.19:9092
+    consumers: 1
+    group: kafka
+    name: MsgChatTransfer
+    offset: first
+    topic: msgChatTransfer
+msgreadhandler:
+    groupmsgreadhandler: 1
+    groupmsgreadrecorddelaycount: 4
+    groupmsgreadrecorddelaytime: 2
+msgreadtransfer:
+    brokers:
+        - 120.26.209.19:9092
+    consumers: 1
+    group: kafka
+    name: msgReadTrans
+    offset: first
+    topic: msgReadTransfer
+name: task.mq
+redisx:
+    host: 120.26.209.19:16379
+    pass: easy-chat
+    type: node
+socialrpc:
+    etcd:
+        hosts:
+            - 120.26.209.19:3379
+        key: social.rpc
+ws:
+    host: 101.37.25.172:10090

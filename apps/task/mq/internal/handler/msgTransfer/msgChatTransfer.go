@@ -49,7 +49,7 @@ func (m *MsgChatTransfer) Consume(ctx context.Context, key, value string) error 
 		RecvId:         data.RecvId,
 		RecvIds:        data.RecvIds,
 		SendTime:       data.SendTime,
-		MsgId:          msgId.Hex(),
+		MsgId:          data.MsgId,
 		MType:          data.MType,
 		Content:        data.Content,
 	})

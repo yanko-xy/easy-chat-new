@@ -49,13 +49,16 @@ type Server struct {
 	connToUser    map[*Conn]string
 	addr          string
 	upgrader      *websocket.Upgrader
+
+	listenOn string
+	discover Discover
 	logx.Logger
 }
 
 func NewServer(addr string, opts ...ServerOptions) *Server {
 	opt := newServerOptions(opts...)
 
-	return &Server{
+	s := &Server{
 		opt:           opt,
 		TaskRunner:    threading.NewTaskRunner(opt.concurrency),
 		routes:        make(map[string]HandlerFunc),
@@ -64,9 +67,20 @@ func NewServer(addr string, opts ...ServerOptions) *Server {
 		addr:          addr,
 		authorization: opt.Authorization,
 		pattern:       opt.pattern,
-		upgrader:      &websocket.Upgrader{},
-		Logger:        logx.WithContext(context.Background()),
+		upgrader: &websocket.Upgrader{
+			CheckOrigin: func(r *http.Request) bool {
+				return true
+			},
+		},
+		discover: opt.discover,
+		listenOn: FigureOutListenOn(addr),
+		Logger:   logx.WithContext(context.Background()),
 	}
+
+	// 存在服务发现，采用分布式im通信的时候；默认不做任何处理
+	s.discover.Register(fmt.Sprintf("%s", s.listenOn))
+
+	return s
 }
 
 func (s *Server) ServerWs(w http.ResponseWriter, r *http.Request) {
@@ -101,6 +115,9 @@ func (s *Server) handleConn(conn *Conn) {
 	uids := s.GetUsers(conn)
 	conn.Uid = uids[0]
 
+	// 如果存在服务发现则进行注册；默认不做任何处理
+	s.discover.BindUser(conn.Uid)
+
 	// 处理任务
 	go s.hadnlerWrite(conn)
 
@@ -121,8 +138,10 @@ func (s *Server) handleConn(conn *Conn) {
 		var message Message
 		if err := json.Unmarshal(msg, &message); err != nil {
 			s.Errorf("websocket conn read message unmarshal err %v, msg %v", err, string(msg))
-			s.Close(conn)
-			return
+
+			//s.Close(conn)
+			//return
+			continue
 		}
 
 		// todo: 给客户端回复一个ack
@@ -142,7 +161,7 @@ func (s *Server) isAck(message *Message) bool {
 	if message == nil {
 		return s.opt.ack != NoAck
 	}
-	return s.opt.ack != NoAck && message.FrameType != FrameNoAck
+	return s.opt.ack != NoAck && message.FrameType != FrameNoAck && message.FrameType != FrameTranspond
 }
 
 // 读取消息的ack
@@ -327,20 +346,25 @@ func (s *Server) GetConn(uid string) *Conn {
 	return s.userToConn[uid]
 }
 
-func (s *Server) GetConns(uids ...string) []*Conn {
+func (s *Server) GetConns(uids ...string) ([]*Conn, []string) {
 	if len(uids) == 0 {
-		return nil
+		return nil, nil
 	}
 
 	s.RWMutex.RLock()
 	defer s.RWMutex.RUnlock()
 
 	res := make([]*Conn, 0, len(uids))
+	noExistUids := make([]string, 0)
 	for _, uid := range uids {
-		res = append(res, s.userToConn[uid])
+		if conn, ok := s.userToConn[uid]; ok {
+			res = append(res, conn)
+		} else {
+			noExistUids = append(noExistUids, uid)
+		}
 	}
 
-	return res
+	return res, noExistUids
 }
 
 func (s *Server) GetUsers(conns ...*Conn) []string {
@@ -377,6 +401,8 @@ func (s *Server) Close(conn *Conn) {
 	delete(s.connToUser, conn)
 	delete(s.userToConn, uid)
 
+	s.discover.RelieveUser(uid)
+
 	conn.Close()
 }
 
@@ -385,7 +411,16 @@ func (s *Server) SendByUserId(msg interface{}, sendIds ...string) error {
 		return nil
 	}
 
-	return s.Send(msg, s.GetConns(sendIds...)...)
+	conns, noExistUids := s.GetConns(sendIds...)
+
+	// 发送当前服务存在的用户
+	err := s.Send(msg, conns...)
+	if err != nil {
+		return err
+	}
+
+	// 不存在的，转发由其他服务处理
+	return s.discover.Transpond(msg, noExistUids...)
 }
 
 func (s *Server) Send(msg interface{}, conns ...*Conn) error {

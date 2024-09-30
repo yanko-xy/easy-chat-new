@@ -41,6 +41,7 @@ func Chat(svc *svc.ServiceContext) websocket.HandlerFunc {
 			SendId:         conn.Uid,
 			RecvId:         data.RecvId,
 			SendTime:       time.Now().UnixNano(),
+			MsgId:          data.MsgId,
 			MType:          data.Msg.MType,
 			Content:        data.Msg.Content,
 		})

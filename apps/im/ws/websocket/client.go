@@ -15,6 +15,7 @@ type Client interface {
 	Close() error
 
 	Send(v any) error
+	SendUid(v any, uids ...string) error
 	Read(v any) error
 }
 
@@ -22,15 +23,17 @@ type client struct {
 	*websocket.Conn
 	host string
 	opt  *dailOption
+	Discover
 }
 
 func NewClient(host string, opts ...DailOptins) *client {
 	opt := newDailOption(opts...)
 
 	c := &client{
-		Conn: nil,
-		host: host,
-		opt:  opt,
+		Conn:     nil,
+		host:     host,
+		opt:      opt,
+		Discover: opt.Discover,
 	}
 
 	conn, err := c.dail()
@@ -46,6 +49,13 @@ func (c *client) dail() (*websocket.Conn, error) {
 	u := url.URL{Scheme: "ws", Host: c.host, Path: c.opt.pattern}
 	conn, _, err := websocket.DefaultDialer.Dial(u.String(), c.opt.header)
 	return conn, err
+}
+
+func (c *client) SendUid(v any, uids ...string) error {
+	if c.Discover != nil {
+		return c.Discover.Transpond(v, uids...)
+	}
+	return c.Send(v)
 }
 
 func (c *client) Send(v any) error {
