@@ -35,6 +35,7 @@ type ServiceContext struct {
 	userclient.User
 
 	IdempotenceMiddleware rest.Middleware
+	LimitMiddleware       rest.Middleware
 	*redis.Redis
 }
 
@@ -47,8 +48,10 @@ func NewServiceContext(c config.Config) *ServiceContext {
 			zrpc.WithUnaryClientInterceptor(interceptor.DefaultIdempotenceClient),
 		)),
 		User: userclient.NewUser(zrpc.MustNewClient(c.UserRpc)),
-
+		// 幂等中间件
 		IdempotenceMiddleware: middleware.NewIdempotenceMiddle().Handle,
-		Redis:                 redis.MustNewRedis(c.Redisx),
+		// 限流中间件
+		LimitMiddleware: middleware.NewLimitMiddleware(c.Redisx).TokenLimitHandler(1, 100),
+		Redis:           redis.MustNewRedis(c.Redisx),
 	}
 }

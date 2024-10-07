@@ -70,7 +70,7 @@ func Run(c config.Config) {
 			reflection.Register(grpcServer)
 		}
 	})
-	s.AddUnaryInterceptors(rpcserver.LogInterceptor)
+	s.AddUnaryInterceptors(rpcserver.LogInterceptor, rpcserver.SyncxLimitInterceptor(10))
 	s.AddUnaryInterceptors(interceptor.NewIdempotenceServer(interceptor.NewDefaultIdempotent(c.
 		Cache[0].RedisConf)))
 	defer s.Stop()
