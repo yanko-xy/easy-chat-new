@@ -8,6 +8,7 @@ import (
 	"github.com/yanko-xy/easy-chat/apps/social/rpc/internal/svc"
 	"github.com/yanko-xy/easy-chat/apps/social/rpc/social"
 	"github.com/yanko-xy/easy-chat/pkg/configserver"
+	"github.com/yanko-xy/easy-chat/pkg/interceptor"
 	"github.com/yanko-xy/easy-chat/pkg/interceptor/rpcserver"
 	"sync"
 
@@ -70,6 +71,8 @@ func Run(c config.Config) {
 		}
 	})
 	s.AddUnaryInterceptors(rpcserver.LogInterceptor)
+	s.AddUnaryInterceptors(interceptor.NewIdempotenceServer(interceptor.NewDefaultIdempotent(c.
+		Cache[0].RedisConf)))
 	defer s.Stop()
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)
