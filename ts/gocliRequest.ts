@@ -44,7 +44,9 @@ export function genUrl(url: string, params: unknown) {
     });
 
     const path: Array<string> = [];
+    // @ts-ignore
     for (const key of Object.keys(params)) {
+        // @ts-ignore
         if (!ps.find((k) => k === key)) {
             path.push(`${key}=${params[key]}`);
         }
@@ -81,7 +83,7 @@ export async function request({
 function api<T>(
     method: Method = 'get',
     url: string,
-    req: any,
+    req?: any,
     config?: unknown
 ): Promise<T> {
     if (url.match(/:/) || method.match(/get|delete/i)) {
@@ -106,19 +108,19 @@ function api<T>(
 }
 
 export const webapi = {
-    get<T>(url: string, req: unknown, config?: unknown): Promise<T> {
+    get<T>(url: string, req?: unknown, config?: unknown): Promise<T> {
         return api<T>('get', url, req, config);
     },
-    delete<T>(url: string, req: unknown, config?: unknown): Promise<T> {
+    delete<T>(url: string, req?: unknown, config?: unknown): Promise<T> {
         return api<T>('delete', url, req, config);
     },
-    put<T>(url: string, req: unknown, config?: unknown): Promise<T> {
+    put<T>(url: string, req?: unknown, config?: unknown): Promise<T> {
         return api<T>('get', url, req, config);
     },
-    post<T>(url: string, req: unknown, config?: unknown): Promise<T> {
+    post<T>(url: string, req?: unknown, config?: unknown): Promise<T> {
         return api<T>('post', url, req, config);
     },
-    patch<T>(url: string, req: unknown, config?: unknown): Promise<T> {
+    patch<T>(url: string, req?: unknown, config?: unknown): Promise<T> {
         return api<T>('patch', url, req, config);
     }
 };

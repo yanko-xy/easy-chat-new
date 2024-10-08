@@ -1,0 +1,23 @@
+host: 0.0.0.0
+jwtauth:
+    accesssecret: github.com
+name: social
+port: 8889
+redisx:
+    host: 120.26.209.19:16379
+    pass: easy-chat
+    type: node
+socialrpc:
+    etcd:
+        hosts:
+            - 120.26.209.19:3379
+        key: social.rpc
+telemetry:
+    batcher: jaeger
+    endpoint: http://120.26.209.19:14268/api/traces
+    name: social.api
+userrpc:
+    etcd:
+        hosts:
+            - 120.26.209.19:3379
+        key: user.rpc

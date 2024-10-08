@@ -17,3 +17,7 @@ redisx:
     host: 120.26.209.19:16379
     pass: easy-chat
     type: node
+telemetry:
+    batcher: jaeger
+    endpoint: http://120.26.209.19:14268/api/traces
+    name: user.rpc

@@ -13,3 +13,7 @@ listenon: 0.0.0.0:10001
 mysql:
     datasource: root:easy-chat@tcp(120.26.209.19:13306)/easy-chat?charset=utf8mb4&parseTime=true&loc=Local
 name: social.rpc
+telemetry:
+    batcher: jaeger
+    endpoint: http://120.26.209.19:14268/api/traces
+    name: social.rpc
