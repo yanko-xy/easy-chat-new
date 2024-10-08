@@ -3,3 +3,5 @@ goctl rpc protoc apps/social/rpc/social.proto --go_out=./apps/social/rpc --go-gr
 goctl model mysql ddl -src="./deploy/sql/social.sql" -dir="./apps/social/socialmodels/" -c
 
 goctl api go -api apps/social/api/social.api -dir apps/social/api -style gozero
+
+goctl api ts -api apps/social/api/social.api -dir ./ts --webapi axios
